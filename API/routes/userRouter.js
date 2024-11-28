@@ -1,60 +1,45 @@
 const express = require('express');
 const Users = require('../models/userModel');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const auth = require('../middleware/auth');
 const router = express.Router();
 
-router.post('/users', async (req, res) => {
+// Register a new user
+router.post('/register', async (req, res) => {
     try {
         const user = new Users(req.body);
         await user.save();
-        res.status(201).send(user);
+        const token = jwt.sign({ _id: user._id }, 'your_jwt_secret', {expiresIn: '15s'});
+        res.status(201).send({ user, token });
     } catch (error) {
         res.status(400).send({ error: error.message });
     }
 });
 
-router.get('/users', async (req, res) => {
+// Login a user
+router.post('/login', async (req, res) => {
     try {
-        const users = await Users.find({});
-        res.send(users);
-    } catch (error) {
-        res.status(500).send({ error: error.message });
-    }
-});
-
-router.get('/users/:id', async (req, res) => {
-    try {
-        const user = await Users.findById(req.params.id);
+        const user = await Users.findOne({ email: req.body.email });
         if (!user) {
-            return res.status(404).send({ error: 'User not found' });
+            return res.status(400).send('Unable to login');
         }
-        res.send(user);
-    } catch (error) {
-        res.status(500).send({ error: error.message });
-    }
-});
 
-router.patch('/users/:id', async (req, res) => {
-    try {
-        const user = await Users.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
-        if (!user) {
-            return res.status(404).send({ error: 'User not found' });
+        const isMatch = await bcrypt.compare(req.body.password, user.password);
+        if (!isMatch) {
+            return res.status(400).send('Unable to login');
         }
-        res.send(user);
+
+        const token = jwt.sign({ _id: user._id }, 'your_jwt_secret' , {expiresIn: '15s'});
+        res.send({ user, token });
     } catch (error) {
         res.status(400).send({ error: error.message });
     }
 });
 
-router.delete('/users/:id', async (req, res) => {
-    try {
-        const user = await Users.findByIdAndDelete(req.params.id);
-        if (!user) {
-            return res.status(404).send({ error: 'User not found' });
-        }
-        res.send(user);
-    } catch (error) {
-        res.status(500).send({ error: error.message });
-    }
+// Protected route example
+router.get('/profile', auth, async (req, res) => {
+    res.send(req.user);
 });
 
 module.exports = router;
