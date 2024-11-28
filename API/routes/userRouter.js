@@ -5,19 +5,17 @@ const jwt = require('jsonwebtoken');
 const auth = require('../middleware/auth');
 const router = express.Router();
 
-// Register a new user
 router.post('/register', async (req, res) => {
     try {
         const user = new Users(req.body);
         await user.save();
-        const token = jwt.sign({ _id: user._id }, 'your_jwt_secret', {expiresIn: '15s'});
+        const token = jwt.sign({ _id: user._id }, 'your_jwt_secret', {expiresIn: '1d'});
         res.status(201).send({ user, token });
     } catch (error) {
         res.status(400).send({ error: error.message });
     }
 });
 
-// Login a user
 router.post('/login', async (req, res) => {
     try {
         const user = await Users.findOne({ email: req.body.email });
@@ -30,14 +28,13 @@ router.post('/login', async (req, res) => {
             return res.status(400).send('Unable to login');
         }
 
-        const token = jwt.sign({ _id: user._id }, 'your_jwt_secret' , {expiresIn: '15s'});
+        const token = jwt.sign({ _id: user._id }, 'your_jwt_secret' , {expiresIn: '1d'});
         res.send({ user, token });
     } catch (error) {
         res.status(400).send({ error: error.message });
     }
 });
 
-// Protected route example
 router.get('/profile', auth, async (req, res) => {
     res.send(req.user);
 });
