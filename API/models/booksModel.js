@@ -11,7 +11,7 @@ const BookSchema = new mongoose.Schema({
     language: { type: String, required: true },
     numberOfPages: { type: Number, required: true },
     publisher: { type: String, required: true },
-    availableCopies: { type: Number }
+    availableCopies: { type: Number, default: 1 }
 });
 
 const Book = mongoose.model('Book', BookSchema);

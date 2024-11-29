@@ -1,7 +1,7 @@
 const express = require('express');
 const connectDB = require("./config/db");
 const userRoutes = require('./routes/userRouter');
-const bookRoutes = require('./routes/BooksRouter');
+const bookRoutes = require('./routes/booksRouter');
 
 const app = express();
 const port = 3000;

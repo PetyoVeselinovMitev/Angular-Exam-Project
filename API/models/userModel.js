@@ -5,7 +5,8 @@ const UsersSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    role: { type: String, required: true }
+    role: { type: String, required: true },
+    reservedBooks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Book', default: [] }]
 });
 
 UsersSchema.pre('save', async function (next) {

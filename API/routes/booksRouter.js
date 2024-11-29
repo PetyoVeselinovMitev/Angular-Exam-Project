@@ -1,5 +1,5 @@
 const express = require('express');
-const Book = require('../models/BooksModel');
+const Book = require('../models/booksModel');
 const auth = require('../middleware/auth');
 const authAdmin = require('../middleware/authAdmin');
 const router = express.Router();
@@ -79,6 +79,62 @@ router.delete('/books/:id', auth, authAdmin, async (req, res) => {
             return res.status(404).send({ error: 'Book not found' });
         }
         res.send({ message: 'Book deleted successfully' });
+    } catch (error) {
+        res.status(500).send({ error: error.message });
+    }
+});
+
+router.post('/books/:id/reserve', auth, async (req, res) => {
+    try {
+        const book = await Book.findById(req.params.id);
+        if (!book) {
+            return res.status(404).send({ error: 'Book not found' });
+        }
+
+        if (book.availableCopies <= 0) {
+            return res.status(400).send({ error: 'No available copies' });
+        }
+
+        const user = req.user;
+        
+        if (user.reservedBooks.includes(book._id)) {
+            return res.status(400).send({ error: 'Book already reserved' });
+        }
+
+        user.reservedBooks.push(book._id);
+        book.availableCopies -= 1;
+
+        await user.save();
+        await book.save();
+
+        res.send({ message: 'Book reserved successfully', book });
+    } catch (error) {
+        res.status(500).send({ error: error.message });
+    }
+});
+
+router.post('/books/:id/return', auth, async (req, res) => {
+    try {
+        const book = await Book.findById(req.params.id);
+        if (!book) {
+            return res.status(404).send({ error: 'Book not found' });
+        }
+
+        const user = req.user;
+
+        if (!user.reservedBooks || !user.reservedBooks.includes(book._id)) {
+            return res.status(400).send({ error: 'Book not reserved by the user' });
+        }
+
+        user.reservedBooks = user.reservedBooks.filter(
+            reservedBook => !reservedBook.equals(book._id)
+        );
+        book.availableCopies += 1;
+
+        await user.save();
+        await book.save();
+
+        res.send({ message: 'Book returned successfully', book });
     } catch (error) {
         res.status(500).send({ error: error.message });
     }
