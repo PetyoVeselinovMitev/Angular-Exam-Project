@@ -1,0 +1,161 @@
+[{
+  "_id": {
+    "$oid": "6748ca6b344995bfc112a01a"
+  },
+  "title": "Harry Potter",
+  "author": "JK Rawling",
+  "ISBN": "wadandawdawdawd",
+  "publicationDate": "21.12.2002",
+  "genre": "fentasy",
+  "summary": "magic gtrggrrgh",
+  "language": "english",
+  "numberOfPages": 729,
+  "publisher": "vazataa",
+  "availableCopies": 0,
+  "__v": 0,
+  "imageUrl": "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360,c_scale,dpr_1.5/jackets/9781408855652.jpg"
+},
+{
+  "_id": {
+    "$oid": "6748cbcc344995bfc112a021"
+  },
+  "title": "Harry Potter",
+  "author": "JK Rawling",
+  "ISBN": "wadandawdawdawasasdd",
+  "publicationDate": "21.12.2002",
+  "genre": "fentasy",
+  "summary": "magic gtrggrrgh",
+  "language": "english",
+  "numberOfPages": 729,
+  "publisher": "vazataa",
+  "availableCopies": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6748cbd0344995bfc112a024"
+  },
+  "title": "Harry Potter",
+  "author": "JK Rawling",
+  "ISBN": "wadandawdawdawaasdasdsasdd",
+  "publicationDate": "21.12.2002",
+  "genre": "fentasy",
+  "summary": "magic gtrggrrgh",
+  "language": "english",
+  "numberOfPages": 729,
+  "publisher": "vazataa",
+  "availableCopies": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6748cbd4344995bfc112a027"
+  },
+  "title": "Harry Potter",
+  "author": "JK Rawling",
+  "ISBN": "wadawdawaasdasdsasdd",
+  "publicationDate": "21.12.2002",
+  "genre": "fentasy",
+  "summary": "magic gtrggrrgh",
+  "language": "english",
+  "numberOfPages": 729,
+  "publisher": "vazataa",
+  "availableCopies": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6748cbda344995bfc112a02a"
+  },
+  "title": "Harry Potter",
+  "author": "JK Rawling",
+  "ISBN": "wadawdawaasdafsdsasdd",
+  "publicationDate": "21.12.2002",
+  "genre": "fentasy",
+  "summary": "magic gtrggrrgh",
+  "language": "english",
+  "numberOfPages": 729,
+  "publisher": "vazataa",
+  "availableCopies": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6748cbde344995bfc112a02d"
+  },
+  "title": "Harry Potter",
+  "author": "JK Rawling",
+  "ISBN": "wadawdasdwaasdafsdsasdd",
+  "publicationDate": "21.12.2002",
+  "genre": "fentasy",
+  "summary": "magic gtrggrrgh",
+  "language": "english",
+  "numberOfPages": 729,
+  "publisher": "vazataa",
+  "availableCopies": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6748cbe1344995bfc112a030"
+  },
+  "title": "Harry Potter",
+  "author": "JK Rawling",
+  "ISBN": "wadawdasdwaasdafsdasdasdasdsasdd",
+  "publicationDate": "21.12.2002",
+  "genre": "fentasy",
+  "summary": "magic gtrggrrgh",
+  "language": "english",
+  "numberOfPages": 729,
+  "publisher": "vazataa",
+  "availableCopies": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6748cbe4344995bfc112a033"
+  },
+  "title": "Harry Potter",
+  "author": "JK Rawling",
+  "ISBN": "wadawdasdwaasdafsdasdasdasdasdasdsasdd",
+  "publicationDate": "21.12.2002",
+  "genre": "fentasy",
+  "summary": "magic gtrggrrgh",
+  "language": "english",
+  "numberOfPages": 729,
+  "publisher": "vazataa",
+  "availableCopies": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6748cbe8344995bfc112a036"
+  },
+  "title": "Harry Potter",
+  "author": "JK Rawling",
+  "ISBN": "wadawdasdwaasdafsdasdasdasdasdd",
+  "publicationDate": "21.12.2002",
+  "genre": "fentasy",
+  "summary": "magic gtrggrrgh",
+  "language": "english",
+  "numberOfPages": 729,
+  "publisher": "vazataa",
+  "availableCopies": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6748cbef344995bfc112a03c"
+  },
+  "title": "Harry Potter",
+  "author": "JK Rowling",
+  "ISBN": "wasdwaasdafsdasddasdd",
+  "publicationDate": "21.12.2002",
+  "genre": "fentasy",
+  "summary": "magic gtrggrrgh",
+  "language": "english",
+  "numberOfPages": 729,
+  "publisher": "vazataa",
+  "availableCopies": 2,
+  "__v": 0
+}]
