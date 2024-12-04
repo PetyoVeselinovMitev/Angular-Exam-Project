@@ -71,6 +71,113 @@ body {
     margin-top: -10px;
 }
 
+.mainSection {
+    position: relative;
+    flex: 1;
+    max-width: 70%;
+    margin: auto;
+}
+
+.mainSection h2 {
+    color: #f9eacd;
+    font-size: 3rem;
+    text-align: center;
+    position: relative;
+    margin-bottom: 15px;
+    margin-top: 40px;
+}
+
+.mainSection h2::after {
+    display: block;
+    content: '';
+    background: #f9eacd;
+    width: 120%;
+    height: 2px;
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+}
+
+.bookCard {
+    display: flex;
+    color: #f9eacd;
+    font-size: 1.4rem;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.bookCard:not(:nth-last-child(2))::after {
+    display: block;
+    content: '';
+    width: 110%;
+    height: 2px;
+    background: #f9eacd;
+    bottom: -21px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.5;
+    position: absolute;
+}
+
+.bookCover img{
+    width: 320px;
+    height: auto;
+    border-radius: 7px;
+    margin-right: 50px;
+}
+
+.bookInfo h3 {
+font-size: 2.2rem;
+margin-bottom: 10px;
+}
+
+.bookInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.bookInfo p:nth-last-child(2){
+    flex: 1;
+}
+
+.adminActions ul li {
+    list-style: none;
+    margin-bottom: 16px;
+}
+
+.adminActions ul {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.adminActions ul li a {
+    background: #c75629;
+    color: #f9eacd;
+    padding: 10px 30px;
+    border-radius: 5px;
+}
+
+.addBookBtn {
+    height: 30px;
+}
+
+.addBookBtn a {
+    background: #f67c4c;
+    position: absolute;
+    padding: 10px 30px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    top: 29px;
+    left: 100px;
+    transition: 0.3s;
+}
+
+.addBookBtn a:hover {
+    background: #9c4320;
+}
+
 .footerSection {
     display: flex;
     gap: 300px;
@@ -96,42 +203,6 @@ body {
     margin: auto;
     margin-top: 50px;
     color: #f9eacd;
-}
-
-.catalogContainer h1 {
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 40px;
-    position: relative;
-}
-
-.catalogContainer h1::after {
-    display: block;
-    content: '';
-    background: #f9eacd;
-    width: 150%;
-    height: 2px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -10px;
-}
-
-.card img {
-    width: 250px;
-    margin-right: 50px;
-    border-radius: 5px;
-}
-
-.card {
-    display: flex;
-    font-size: 1.2rem;
-    margin-bottom: 35px;
-}
-
-.card h3 {
-    font-size: 2.3rem;
-    margin-bottom: 30px;
 }
 
 .firstWord {
