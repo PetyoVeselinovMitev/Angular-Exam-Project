@@ -4,6 +4,15 @@ const auth = require('../middleware/auth');
 const authAdmin = require('../middleware/authAdmin');
 const router = express.Router();
 
+router.get('/books-recent', async (req, res) => {
+    try {
+        const recentBooks = await Book.find().sort({ createdAt: -1 }).limit(3).select('title author imageUrl');
+        res.send(recentBooks);
+    } catch (error) {
+        res.status(500).send({ error: error.message });
+    }
+});
+
 router.get('/books-short', async (req, res) => {
     const { page = 1, limit = 10 } = req.query;
 
@@ -19,7 +28,7 @@ router.get('/books-short', async (req, res) => {
         res.send({
             books,
             totalPages: Math.ceil(count / limit),
-            currentPage: page
+            currentPage: Number(page)
         });
     } catch (error) {
         res.status(500).send({ error: error.message });
@@ -96,7 +105,7 @@ router.post('/books/:id/reserve', auth, async (req, res) => {
         }
 
         const user = req.user;
-        
+
         if (user.reservedBooks.includes(book._id)) {
             return res.status(400).send({ error: 'Book already reserved' });
         }
