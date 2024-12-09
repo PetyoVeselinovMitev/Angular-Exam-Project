@@ -8,8 +8,8 @@ a {
     text-decoration: none;
 }
 
-body{
-    background: linear-gradient(to bottom, #3c2b23, #271c17 ) ;
+body {
+    background: linear-gradient(to bottom, #3c2b23, #271c17);
     height: 100vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -18,7 +18,7 @@ body{
     display: flex;
     flex-direction: column;
 }
- 
+
 .headerSection {
     display: flex;
     background: #f9eacd;
@@ -35,11 +35,14 @@ body{
     margin-left: 100px;
 }
 
-.navigation ul li, .userActions ul li, .socials ul li {
+.navigation ul li,
+.userActions ul li,
+.socials ul li {
     list-style: none;
 }
 
-.navigation ul li a, .userActions ul li a{
+.navigation ul li a,
+.userActions ul li a {
     background: #f67c4c;
     padding: 9px 20px;
     border-radius: 5px;
@@ -48,98 +51,129 @@ body{
     transition: background-color 0.3s;
 }
 
-.navigation ul li a:hover, .userActions ul li a:hover {
+.navigation ul li a:hover,
+.userActions ul li a:hover {
     background-color: #c75629;
 }
 
-.navigation ul, .userActions ul{
+.navigation ul,
+.userActions ul {
     display: flex;
     gap: 50px;
 }
 
-.user{
+.user {
     margin-right: 100px;
     text-align: center;
 }
 
-.user p{
+.user p {
     margin-bottom: 15px;
     margin-top: -10px;
 }
 
 .mainSection {
     flex: 1;
+    color: #f9eacd;
+}
+
+.userInfo {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+.userInfoContainer a {
+    background: #f67c4c;
+    color: #271c17;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.userInfoContainer,
+.reservedBooks {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+.userInfoContainer h2,
+.reservedBooks h2 {
+    font-size: 2rem;
+    margin-top: 20px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.userInfoContainer h2::after {
+    display: block;
+    content: '';
+    background: #f9eacd;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+}
+
+.userInfo {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.firstWord {
+    font-weight: bold;
+}
+
+.reservedBooks h2 {
+    margin-top: 40px;
+}
+
+.reservedBooks>h2::before {
+    display: block;
+    content: '';
+    background: #f9eacd;
+    width: 80%;
+    height: 2px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -15px;
+    opacity: 0.5;
 }
 
 .cardsContainer {
     display: flex;
-    justify-content: space-between;
-    margin: 30px 450px;
+    gap: 30px;
 }
 
 .card {
-    width: 280px;
+    max-width: calc(20% - 20px);
 }
 
-.card a img{
-    border-radius: 10px;
-    overflow: hidden;
-    width: 280px;
+.card img {
+    width: 240px;
 }
 
-.card:first-child {
-    width: 220px;
-    margin-top: 35px;
+.card>h2 {
+    font-size: 1.4rem;
+    margin-top: 10px;
 }
 
-.card:first-child a img {
-    width: 220px;
+.returnBtn {
+    background: #f67c4c;
+    color: #271c17;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    transition: 0.3s;
 }
 
-.card:last-child {
-    width: 220px;
-    margin-top: 35px;
-}
-
-.card:last-child a img {
-    width: 220px;
-}
-
-.card h3 {
-    color: #f9eacd;
-    text-align: center;
-    margin-top: 15px;
-    font-weight: 600;
-    font-size: 1.5rem;
-}
-
-.welcomeMsg {
-    color: #f9eacd;
-    text-align: center;
-    font-size: 2rem;
-    margin: 30px 200px 0 200px;
-}
-
-.welcomeMsg p:nth-last-child(1) {
-    font-weight: bold;
-    font-size: 2.5rem;
-    margin-top: 35px
-}
-
-.welcomeMsg p {
-    position: relative;
-}
-
-.welcomeMsg p:nth-last-child(2):after {
-    content: '';
-    display: block;
-    width: 110%;
-    height: 2px;
-    background: #f9eacd;
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
+.returnBtn:hover, .userInfoContainer a:hover  {
+    background: #b54d24;
+    cursor: pointer;
 }
 
 .footerSection {
@@ -153,7 +187,7 @@ body{
     width: 100%;
 }
 
-.socials ul{
+.socials ul {
     display: flex;
     gap: 30px;
 }
