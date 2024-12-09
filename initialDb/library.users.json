@@ -10,41 +10,11 @@
 },
 {
   "_id": {
-    "$oid": "6749fb6aa85de8d32a73da1d"
+    "$oid": "6757113e7dbd46c4ba61d39f"
   },
-  "email": "pet@abv.bg",
-  "username": "Pet",
-  "password": "$2a$08$W6G1P8kJeasJvB7ocCu7Tu93tFhZgcDY1KVkuq/2cWZLft7401Cau",
-  "role": "user",
-  "reservedBooks": [
-    {
-      "$oid": "6748ca6b344995bfc112a01a"
-    }
-  ],
-  "__v": 3
-},
-{
-  "_id": {
-    "$oid": "6749fe819bfef15dcdab27e5"
-  },
-  "email": "pet2@abv.bg",
-  "username": "Pet2",
-  "password": "$2a$08$LU9Y2XcG8OtETP92sEXSv.VO1W8.gKljEMseajaI36wFWXzz9681G",
-  "role": "user",
-  "reservedBooks": [
-    {
-      "$oid": "6748ca6b344995bfc112a01a"
-    }
-  ],
-  "__v": 1
-},
-{
-  "_id": {
-    "$oid": "6749fe9e9bfef15dcdab27eb"
-  },
-  "email": "pet3@abv.bg",
-  "username": "Pet3",
-  "password": "$2a$08$byqq6oGB3nCCn1cCgew/GO2CdlHX/Edph0fBv2/0J97vlwZ2wWEPO",
+  "email": "user@abv.bg",
+  "username": "User",
+  "password": "$2a$08$nAMupTmkhtOryrV74nOEt.DVzmqrgc1t0n/FDRCIF54hLuFABNfzW",
   "role": "user",
   "reservedBooks": [],
   "__v": 0

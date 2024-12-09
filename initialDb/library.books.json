@@ -1,161 +1,102 @@
 [{
   "_id": {
-    "$oid": "6748ca6b344995bfc112a01a"
+    "$oid": "67570d658cc582fdf5bf26ec"
   },
-  "title": "Harry Potter",
-  "author": "JK Rawling",
-  "ISBN": "wadandawdawdawd",
-  "publicationDate": "21.12.2002",
-  "genre": "fentasy",
-  "summary": "magic gtrggrrgh",
-  "language": "english",
-  "numberOfPages": 729,
-  "publisher": "vazataa",
-  "availableCopies": 0,
-  "__v": 0,
-  "imageUrl": "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360,c_scale,dpr_1.5/jackets/9781408855652.jpg"
-},
-{
-  "_id": {
-    "$oid": "6748cbcc344995bfc112a021"
-  },
-  "title": "Harry Potter",
-  "author": "JK Rawling",
-  "ISBN": "wadandawdawdawasasdd",
-  "publicationDate": "21.12.2002",
-  "genre": "fentasy",
-  "summary": "magic gtrggrrgh",
-  "language": "english",
-  "numberOfPages": 729,
-  "publisher": "vazataa",
-  "availableCopies": 2,
+  "title": "The Great Gatsby",
+  "author": "F. Scott Fitzgerald",
+  "imageUrl": "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781524879761/the-great-gatsby-9781524879761_lg.jpg",
+  "ISBN": "9780743273565",
+  "publicationDate": "1925-04-10",
+  "genre": "Classic",
+  "summary": "A story about the young and mysterious millionaire Jay Gatsby and his quixotic passion for the beautiful Daisy Buchanan.",
+  "language": "English",
+  "numberOfPages": 180,
+  "publisher": "Scribner",
+  "availableCopies": 5,
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "6748cbd0344995bfc112a024"
+    "$oid": "67570e1f8cc582fdf5bf26f0"
   },
-  "title": "Harry Potter",
-  "author": "JK Rawling",
-  "ISBN": "wadandawdawdawaasdasdsasdd",
-  "publicationDate": "21.12.2002",
-  "genre": "fentasy",
-  "summary": "magic gtrggrrgh",
-  "language": "english",
-  "numberOfPages": 729,
-  "publisher": "vazataa",
-  "availableCopies": 2,
+  "title": "1984",
+  "author": "George Orwell",
+  "imageUrl": "https://m.media-amazon.com/images/I/612ADI+BVlL._AC_UF894,1000_QL80_.jpg",
+  "ISBN": "9780451524935",
+  "publicationDate": "1949-06-08",
+  "genre": "Dystopian",
+  "summary": "A novel that tells the story of a dystopian future where truth is manipulated and oppression is accepted.",
+  "language": "English",
+  "numberOfPages": 328,
+  "publisher": "Houghton Mifflin Harcourt",
+  "availableCopies": 4,
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "6748cbd4344995bfc112a027"
+    "$oid": "67570e518cc582fdf5bf26f4"
   },
-  "title": "Harry Potter",
-  "author": "JK Rawling",
-  "ISBN": "wadawdawaasdasdsasdd",
-  "publicationDate": "21.12.2002",
-  "genre": "fentasy",
-  "summary": "magic gtrggrrgh",
-  "language": "english",
-  "numberOfPages": 729,
-  "publisher": "vazataa",
-  "availableCopies": 2,
+  "title": "To Kill a Mockingbird",
+  "author": "Harper Lee",
+  "imageUrl": "https://cdn.britannica.com/21/182021-050-666DB6B1/book-cover-To-Kill-a-Mockingbird-many-1961.jpg",
+  "ISBN": "9780061120084",
+  "publicationDate": "1960-07-11",
+  "genre": "Southern Gothic",
+  "summary": "A novel about the serious issues of rape and racial inequality, told through the eyes of a young girl.",
+  "language": "English",
+  "numberOfPages": 281,
+  "publisher": "J.B. Lippincott & Co.",
+  "availableCopies": 7,
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "6748cbda344995bfc112a02a"
+    "$oid": "67570e838cc582fdf5bf26f8"
   },
-  "title": "Harry Potter",
-  "author": "JK Rawling",
-  "ISBN": "wadawdawaasdafsdsasdd",
-  "publicationDate": "21.12.2002",
-  "genre": "fentasy",
-  "summary": "magic gtrggrrgh",
-  "language": "english",
-  "numberOfPages": 729,
-  "publisher": "vazataa",
-  "availableCopies": 2,
+  "title": "The Catcher in the Rye",
+  "author": "J.D. Salinger",
+  "imageUrl": "https://cdn.britannica.com/94/181394-050-2F76F7EE/Reproduction-cover-edition-The-Catcher-in-the.jpg",
+  "ISBN": "9780316769488",
+  "publicationDate": "1951-07-16",
+  "genre": "Realistic Fiction",
+  "summary": "The narrative of a teenager Holden Caulfield's experiences in New York City.",
+  "language": "English",
+  "numberOfPages": 214,
+  "publisher": "Little, Brown and Company",
+  "availableCopies": 3,
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "6748cbde344995bfc112a02d"
+    "$oid": "67570eb98cc582fdf5bf26fc"
   },
-  "title": "Harry Potter",
-  "author": "JK Rawling",
-  "ISBN": "wadawdasdwaasdafsdsasdd",
-  "publicationDate": "21.12.2002",
-  "genre": "fentasy",
-  "summary": "magic gtrggrrgh",
-  "language": "english",
-  "numberOfPages": 729,
-  "publisher": "vazataa",
-  "availableCopies": 2,
+  "title": "Pride and Prejudice",
+  "author": "Jane Austen",
+  "imageUrl": "https://m.media-amazon.com/images/I/712P0p5cXIL._AC_UF894,1000_QL80_.jpg",
+  "ISBN": "9780141439518",
+  "publicationDate": "1813-01-28",
+  "genre": "Romantic Fiction",
+  "summary": "A romantic novel of manners that depicts the British Regency-era society.",
+  "language": "English",
+  "numberOfPages": 279,
+  "publisher": "T. Egerton, Whitehall",
+  "availableCopies": 8,
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "6748cbe1344995bfc112a030"
+    "$oid": "67570ef18cc582fdf5bf2700"
   },
-  "title": "Harry Potter",
-  "author": "JK Rawling",
-  "ISBN": "wadawdasdwaasdafsdasdasdasdsasdd",
-  "publicationDate": "21.12.2002",
-  "genre": "fentasy",
-  "summary": "magic gtrggrrgh",
-  "language": "english",
-  "numberOfPages": 729,
-  "publisher": "vazataa",
-  "availableCopies": 2,
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6748cbe4344995bfc112a033"
-  },
-  "title": "Harry Potter",
-  "author": "JK Rawling",
-  "ISBN": "wadawdasdwaasdafsdasdasdasdasdasdsasdd",
-  "publicationDate": "21.12.2002",
-  "genre": "fentasy",
-  "summary": "magic gtrggrrgh",
-  "language": "english",
-  "numberOfPages": 729,
-  "publisher": "vazataa",
-  "availableCopies": 2,
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6748cbe8344995bfc112a036"
-  },
-  "title": "Harry Potter",
-  "author": "JK Rawling",
-  "ISBN": "wadawdasdwaasdafsdasdasdasdasdd",
-  "publicationDate": "21.12.2002",
-  "genre": "fentasy",
-  "summary": "magic gtrggrrgh",
-  "language": "english",
-  "numberOfPages": 729,
-  "publisher": "vazataa",
-  "availableCopies": 2,
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6748cbef344995bfc112a03c"
-  },
-  "title": "Harry Potter",
-  "author": "JK Rowling",
-  "ISBN": "wasdwaasdafsdasddasdd",
-  "publicationDate": "21.12.2002",
-  "genre": "fentasy",
-  "summary": "magic gtrggrrgh",
-  "language": "english",
-  "numberOfPages": 729,
-  "publisher": "vazataa",
-  "availableCopies": 2,
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "imageUrl": "https://i.harperapps.com/covers/9780063388475/y648.jpg",
+  "ISBN": "9780547928227",
+  "publicationDate": "1937-09-21",
+  "genre": "Fantasy",
+  "summary": "A fantasy novel about the quest of home-loving hobbit Bilbo Baggins to win a share of the treasure guarded by Smaug the dragon.",
+  "language": "English",
+  "numberOfPages": 310,
+  "publisher": "George Allen & Unwin",
+  "availableCopies": 5,
   "__v": 0
 }]

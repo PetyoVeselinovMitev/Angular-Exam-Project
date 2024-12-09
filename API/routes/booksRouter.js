@@ -1,5 +1,6 @@
 const express = require('express');
 const Book = require('../models/booksModel');
+const Users = require('../models/userModel')
 const auth = require('../middleware/auth');
 const authAdmin = require('../middleware/authAdmin');
 const router = express.Router();
@@ -87,7 +88,12 @@ router.delete('/books/:id', auth, authAdmin, async (req, res) => {
         if (!book) {
             return res.status(404).send({ error: 'Book not found' });
         }
-        res.send({ message: 'Book deleted successfully' });
+
+        await Users.updateMany(
+            { reservedBooks: book._id },
+            { $pull: { reservedBooks: book._id } }
+        )
+        res.send({ message: 'Book deleted successfully and removed from users\' reserved books' });
     } catch (error) {
         res.status(500).send({ error: error.message });
     }
@@ -105,6 +111,10 @@ router.post('/books/:id/reserve', auth, async (req, res) => {
         }
 
         const user = req.user;
+
+        if (user.reservedBooks.length >= 5) {
+            return res.status(400).send({ error: 'You can\'t reserve more than 5 books' });
+        }
 
         if (user.reservedBooks.includes(book._id)) {
             return res.status(400).send({ error: 'Book already reserved' });
