@@ -7,6 +7,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AboutComponent } from './about/about.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { DetailsComponent } from './details/details.component';
+import { AddBookComponent } from './add-book/add-book.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -16,6 +17,7 @@ export const routes: Routes = [
     {path: 'edit-profile', component: EditProfileComponent},
     {path: 'about', component: AboutComponent},
     {path: 'catalog', component: CatalogComponent},
-    {path: 'details', component: DetailsComponent}
+    {path: 'details', component: DetailsComponent},
+    {path: 'add-book', component: AddBookComponent}
 
 ];

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="add-book.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="headerSection">
+        <div class="logoContainer">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="">
+            </a>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#">home</a></li>
+                <li><a href="#">catalog</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">login</a></li>
+                <li><a href="#">register</a></li>
+            </ul>
+        </nav>
+        <div class="user">
+            <p>Hello Pesho</p>
+            <div class="userActions">
+                <ul>
+                    <li><a href="#">profile</a></li>
+                    <li><a href="#">logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main class="mainSection">
+        <div class="add-book-container">
+            <h2>Add Book</h2>
+            <form id="add-book-form">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input id="title" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input id="author" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="imageUrl">Image URL</label>
+                    <input id="imageUrl" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="ISBN">ISBN</label>
+                    <input id="ISBN" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="publicationDate">Publication Date</label>
+                    <input id="publicationDate" type="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <input id="genre" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="summary">Summary</label>
+                    <textarea id="summary"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="language">Language</label>
+                    <input id="language" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="numberOfPages">Number of Pages</label>
+                    <input id="numberOfPages" type="number" required>
+                </div>
+                <div class="form-group"> <label for="publisher">Publisher</label>
+                    <input id="publisher" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="availableCopies">Available Copies</label>
+                    <input id="availableCopies" type="number" value="1" required>
+                </div> <button type="submit">Add Book</button>
+            </form>
+        </div>
+    </main>
+    <footer class="footerSection">
+        <div class="socials">
+            <ul>
+                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+            </ul>
+        </div>
+        <div class="contacts">
+            <p>Email: library@example.com</p>
+            <p>Phone: +1 234 567 890</p>
+            <p>Address: 123 Library Street, Booktown, BT 56789</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -20,6 +20,7 @@ margin-bottom: 60px;
     border: 2px solid #f9eacd;
     border-radius: 10px;
     padding: 30px;
+    margin: auto
 }
 
 .buttonContainer > button {
