@@ -1,0 +1,50 @@
+.mainSection {
+    flex: 1;
+    color: #f9eacd;
+}
+
+.text p{
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+}
+
+.text h2 {
+    margin-bottom: 5px;
+}
+
+.text {
+    margin-right: 50px;
+}
+
+.mainSection h1 {
+    color: #f9eacd;
+    text-align: center;
+    font-size: 2rem;
+    margin: 30px 200px 0 200px;
+    position: relative;
+}
+
+.imgContainer img {
+    width: 550px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.aboutContent {
+    display: flex;
+    justify-content: center;
+    margin: 50px 250px 50px 250px;
+    align-items: center;
+}
+
+.mainSection h1:after {
+    content: '';
+    display: block;
+    width: 110%;
+    height: 2px;
+    background: #f9eacd;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}

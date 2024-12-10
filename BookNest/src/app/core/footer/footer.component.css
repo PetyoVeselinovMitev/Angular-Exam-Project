@@ -1,0 +1,23 @@
+.footerSection {
+    display: flex;
+    gap: 300px;
+    align-items: center;
+    color: #f9eacd;
+    justify-content: center;
+    text-align: center;
+    background: #b54d24;
+    width: 100%;
+}
+
+.socials ul{
+    display: flex;
+    gap: 30px;
+}
+
+.socials ul li a {
+    font-size: 2.5rem;
+}
+
+.socials ul li { 
+    list-style: none;
+}

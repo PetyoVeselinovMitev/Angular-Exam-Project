@@ -1,0 +1,80 @@
+.mainSection {
+    flex: 1;
+    color: #f9eacd;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.loginCointainer h2{
+font-size: 3rem;
+margin-top: 30px;
+position: relative;
+margin-bottom: 60px;
+text-align: center
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    border: 2px solid #f9eacd;
+    border-radius: 10px;
+    padding: 30px;
+    margin: auto;
+}
+
+.buttonContainer > button {
+    padding: 10px 40px;
+    background: #f67c4c;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 30px;
+    font-size: 1.1rem;
+}
+
+.buttonContainer > button:hover {
+    background: #9a421f;
+}
+
+.form-group {
+    font-size: 1.3rem;
+    margin: 10px;
+    margin-bottom: 30px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.form-group > label {
+    text-align: right;
+    flex: 3;
+}
+
+.form-group > input {
+    flex: 5;
+    padding: 5px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    background: #f9eacd;
+}
+
+.form-group > input::placeholder {
+    color: #271c17;
+    opacity: 0.5;
+}
+
+.loginCointainer h2::after {
+    display: block;
+    content: '';
+    width: 160%;
+    height: 2px;
+    position: absolute;
+    background: #f9eacd;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}

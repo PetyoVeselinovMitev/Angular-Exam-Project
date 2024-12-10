@@ -1,0 +1,52 @@
+.mainSection {
+    flex: 1;
+    color: #f9eacd;
+    font-size: 1.3rem;
+}
+
+.firstWord {
+    font-weight: bold;
+}
+
+.details {
+    display: flex;
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.imgContainer img {
+    width: 360px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.imgContainer {
+    margin-right: 50px;
+}
+
+.summary p {
+    margin-bottom: 5px;
+}
+
+.reserve {
+    display: flex;
+    align-items: center;
+}
+
+.reserveBtn {
+    margin-left: 25px;
+    color: #271c17;
+    background: #f67c4c;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.reserveBtn:hover {
+    background: #b54d24;
+    cursor: pointer;
+}

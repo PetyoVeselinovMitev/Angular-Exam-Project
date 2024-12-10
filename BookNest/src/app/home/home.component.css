@@ -1,0 +1,70 @@
+.cardsContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 450px;
+}
+
+.card {
+    width: 280px;
+}
+
+.card a img{
+    border-radius: 10px;
+    overflow: hidden;
+    width: 280px;
+}
+
+.card:first-child {
+    width: 220px;
+    margin-top: 35px;
+}
+
+.card:first-child a img {
+    width: 220px;
+}
+
+.card:last-child {
+    width: 220px;
+    margin-top: 35px;
+}
+
+.card:last-child a img {
+    width: 220px;
+}
+
+.card h3 {
+    color: #f9eacd;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.welcomeMsg {
+    color: #f9eacd;
+    text-align: center;
+    font-size: 2rem;
+    margin: 30px 200px 0 200px;
+}
+
+.welcomeMsg p:nth-last-child(1) {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-top: 35px
+}
+
+.welcomeMsg p {
+    position: relative;
+}
+
+.welcomeMsg p:nth-last-child(2):after {
+    content: '';
+    display: block;
+    width: 110%;
+    height: 2px;
+    background: #f9eacd;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
