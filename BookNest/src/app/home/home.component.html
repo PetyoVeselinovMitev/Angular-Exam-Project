@@ -4,27 +4,13 @@
     <p>Recent books</p>
 </div>
 <div class="cardsContainer">
-    <div class="card">
-        <a href="#">
-            <img src="https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
-                alt="bookCover">
-            <h3>A million to one</h3>
-        </a>
-    </div>
-
-    <div class="card">
-        <a href="#">
-            <img src="https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
-                alt="bookCover">
-            <h3>A million to one</h3>
-        </a>
-    </div>
-
-    <div class="card">
-        <a href="#">
-            <img src="https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
-                alt="bookCover">
-            <h3>A million to one</h3>
-        </a>
-    </div>
+    @for (book of books; track $index) {
+        <div class="card">
+            <a href="#">
+                <img src="{{book.imageUrl}}"
+                    alt="bookCover">
+                <h3>{{book.title}}</h3>
+            </a>
+        </div>
+    }
 </div>
