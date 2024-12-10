@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/books-recent', async (req, res) => {
     try {
-        const recentBooks = await Book.find().sort({ createdAt: -1 }).limit(3).select('title author imageUrl');
+        const recentBooks = await Book.find().sort({ $natural: -1 }).limit(3).select('title author imageUrl');
         res.send(recentBooks);
     } catch (error) {
         res.status(500).send({ error: error.message });

@@ -3,27 +3,16 @@
     <div class="addBookBtn">
         <a routerLink="add-book">Add book</a>
     </div>
+    @for (book of books; track $index) {
     <div class="bookCard">
         <div class="bookCover">
-            <img src="https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
+            <img src='{{book.imageUrl}}'
                 alt="book cover">
         </div>
         <div class="bookInfo">
-            <h3>A million to one</h3>
-            <p class="genres"><span class="firstWord">Genres: </span> Horror fiction, Mystery, Urban fantasy,
-                Paranormal
-                fiction, Paranormal Fantasy</p>
-            <p><span class="firstWord">Summary: </span> Detective Napoleon Villa’s latest case is spiraling out
-                of control. Drawing on his
-                skills,
-                he battles to save former suspect Kyle Fasano from becoming the next victim.
-                Yet no amount of training or experience could prepare him for the latest twist in the
-                investigation.
-                Kyle disappears in a loss that reverberates through his community, leaving his wife, Tamara, and
-                their children under attack by forces beyond comprehension. Determined to protect her kids,
-                Tamara
-                must rely on her faith and her wits as she faces absolute evil.
-            </p>
+            <h3>{{book.title}}</h3>
+            <p class="genres"><span class="firstWord">Genres: </span>{{book.genre}}</p>
+            <p><span class="firstWord">Summary: </span>{{book.summary}}</p>
             <div class="adminActions">
                 <ul>
                     <li><a routerLink="add-book">Edit</a></li>
@@ -32,122 +21,9 @@
             </div>
         </div>
     </div>
-    <div class="bookCard">
-        <div class="bookCover">
-            <img src="https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
-                alt="book cover">
-        </div>
-        <div class="bookInfo">
-            <h3>A million to one</h3>
-            <p class="genres"><span class="firstWord">Genres: </span> Horror fiction, Mystery, Urban fantasy,
-                Paranormal
-                fiction, Paranormal Fantasy</p>
-            <p><span class="firstWord">Summary: </span> Detective Napoleon Villa’s latest case is spiraling out
-                of control. Drawing on his
-                skills,
-                he battles to save former suspect Kyle Fasano from becoming the next victim.
-                Yet no amount of training or experience could prepare him for the latest twist in the
-                investigation.
-                Kyle disappears in a loss that reverberates through his community, leaving his wife, Tamara, and
-                their children under attack by forces beyond comprehension. Determined to protect her kids,
-                Tamara
-                must rely on her faith and her wits as she faces absolute evil.
-            </p>
-            <div class="adminActions">
-                <ul>
-                    <li><a href="#">Edit</a></li>
-                    <li><a href="#">Delete</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="bookCard">
-        <div class="bookCover">
-            <img src="https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
-                alt="book cover">
-        </div>
-        <div class="bookInfo">
-            <h3>A million to one</h3>
-            <p class="genres"><span class="firstWord">Genres: </span> Horror fiction, Mystery, Urban fantasy,
-                Paranormal
-                fiction, Paranormal Fantasy</p>
-            <p><span class="firstWord">Summary: </span> Detective Napoleon Villa’s latest case is spiraling out
-                of control. Drawing on his
-                skills,
-                he battles to save former suspect Kyle Fasano from becoming the next victim.
-                Yet no amount of training or experience could prepare him for the latest twist in the
-                investigation.
-                Kyle disappears in a loss that reverberates through his community, leaving his wife, Tamara, and
-                their children under attack by forces beyond comprehension. Determined to protect her kids,
-                Tamara
-                must rely on her faith and her wits as she faces absolute evil.
-            </p>
-            <div class="adminActions">
-                <ul>
-                    <li><a href="#">Edit</a></li>
-                    <li><a href="#">Delete</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="bookCard">
-        <div class="bookCover">
-            <img src="https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
-                alt="book cover">
-        </div>
-        <div class="bookInfo">
-            <h3>A million to one</h3>
-            <p class="genres"><span class="firstWord">Genres: </span> Horror fiction, Mystery, Urban fantasy,
-                Paranormal
-                fiction, Paranormal Fantasy</p>
-            <p><span class="firstWord">Summary: </span> Detective Napoleon Villa’s latest case is spiraling out
-                of control. Drawing on his
-                skills,
-                he battles to save former suspect Kyle Fasano from becoming the next victim.
-                Yet no amount of training or experience could prepare him for the latest twist in the
-                investigation.
-                Kyle disappears in a loss that reverberates through his community, leaving his wife, Tamara, and
-                their children under attack by forces beyond comprehension. Determined to protect her kids,
-                Tamara
-                must rely on her faith and her wits as she faces absolute evil.
-            </p>
-            <div class="adminActions">
-                <ul>
-                    <li><a href="#">Edit</a></li>
-                    <li><a href="#">Delete</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="bookCard">
-        <div class="bookCover">
-            <img src="https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
-                alt="book cover">
-        </div>
-        <div class="bookInfo">
-            <h3>A million to one</h3>
-            <p class="genres"><span class="firstWord">Genres: </span> Horror fiction, Mystery, Urban fantasy,
-                Paranormal
-                fiction, Paranormal Fantasy</p>
-            <p><span class="firstWord">Summary: </span> Detective Napoleon Villa’s latest case is spiraling out
-                of control. Drawing on his
-                skills,
-                he battles to save former suspect Kyle Fasano from becoming the next victim.
-                Yet no amount of training or experience could prepare him for the latest twist in the
-                investigation.
-                Kyle disappears in a loss that reverberates through his community, leaving his wife, Tamara, and
-                their children under attack by forces beyond comprehension. Determined to protect her kids,
-                Tamara
-                must rely on her faith and her wits as she faces absolute evil.
-            </p>
-            <div class="adminActions">
-                <ul>
-                    <li><a href="#">Edit</a></li>
-                    <li><a href="#">Delete</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    }
+
+
     <div class="pagination">
         <a href="#">&laquo; Previous</a>
         <a href="#">1</a> <a href="#">2</a>

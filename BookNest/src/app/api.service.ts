@@ -13,4 +13,9 @@ export class ApiService {
         let url = `/api/books-recent`
         return this.http.get<Books[]>(url);
     }
+
+    getBooks() {
+        let url = `/api/books`
+        return this.http.get<Books[]>(url);
+    }
 }
