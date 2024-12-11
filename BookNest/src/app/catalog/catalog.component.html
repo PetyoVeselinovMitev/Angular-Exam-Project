@@ -1,5 +1,12 @@
 <main class="mainSection">
     <h2>Catalog</h2>
+    <div class="pagination topPagination">
+        <button (click)="goToPage(1)" [disabled]="catalogPagination.currentPage === 1">&laquo; First</button>
+        <button (click)="goToPage(catalogPagination.currentPage - 1)" [disabled]="catalogPagination.currentPage === 1">Previous</button>
+        <button class="pageInfo" disabled>Page {{ catalogPagination.currentPage}} of {{catalogPagination.totalPages}}</button>
+        <button (click)="goToPage(catalogPagination.currentPage + 1)" [disabled]="catalogPagination.currentPage === catalogPagination.totalPages">Next</button>
+        <button (click)="goToPage(catalogPagination.totalPages)" [disabled]="catalogPagination.currentPage === catalogPagination.totalPages">Last &raquo;</button>
+    </div>
     <div class="addBookBtn">
         <a routerLink="add-book">Add book</a>
     </div>

@@ -115,9 +115,14 @@
     margin-bottom: 30px;
 }
 
+.topPagination {
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
 .pagination button {
     color: #f9eacd;
-    background-color: #b54d24;
+    background-color: #d66031;
     border: 1px solid #f9eacd;
     padding: 10px 15px;
     text-decoration: none;
@@ -132,12 +137,12 @@
 }
 
 .pagination button:disabled {
-    background-color: #d66031;
+    background-color: #b54d24;
     cursor: default;
 }
 
 .pagination button:disabled:hover {
-    background-color: #d66031;
+    background-color: #b54d24;
 }
 
 .firstWord {
