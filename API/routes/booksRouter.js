@@ -15,21 +15,25 @@ router.get('/books-recent', async (req, res) => {
 });
 
 router.get('/books-short', async (req, res) => {
-    const { page = 1, limit = 10 } = req.query;
-
     try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = 5
+        const skip = (page - 1) * limit
+
         const books = await Book.find({})
-            .select('title author imageUrl')
-            .limit(limit * 1)
-            .skip((page - 1) * limit)
+            .sort({$natural: -1})
+            .limit(limit)
+            .skip(skip)
+            .select('title summary genre imageUrl')
             .exec();
 
-        const count = await Book.countDocuments();
+        const totalBooks = await Book.countDocuments();
+        const totalPages = Math.ceil(totalBooks / limit)
 
         res.send({
             books,
-            totalPages: Math.ceil(count / limit),
-            currentPage: Number(page)
+            totalPages,
+            currentPage: page
         });
     } catch (error) {
         res.status(500).send({ error: error.message });

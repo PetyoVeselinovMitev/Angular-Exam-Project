@@ -3,16 +3,15 @@
     <div class="addBookBtn">
         <a routerLink="add-book">Add book</a>
     </div>
-    @for (book of books; track $index) {
+    @for (book of catalogPagination.books; track $index) {
     <div class="bookCard">
         <div class="bookCover">
-            <img src='{{book.imageUrl}}'
-                alt="book cover">
+            <img [src]='book.imageUrl' [alt]="book.title">
         </div>
         <div class="bookInfo">
             <h3>{{book.title}}</h3>
-            <p class="genres"><span class="firstWord">Genres: </span>{{book.genre}}</p>
-            <p><span class="firstWord">Summary: </span>{{book.summary}}</p>
+            <p class="genres"><span class="firstWord">Genres: </span><br>{{book.genre}}</p>
+            <p><span class="firstWord">Summary: </span><br>{{book.summary}}</p>
             <div class="adminActions">
                 <ul>
                     <li><a routerLink="add-book">Edit</a></li>
@@ -25,10 +24,10 @@
 
 
     <div class="pagination">
-        <a href="#">&laquo; Previous</a>
-        <a href="#">1</a> <a href="#">2</a>
-        <a href="#">3</a> <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">Next &raquo;</a>
+        <button (click)="goToPage(1)" [disabled]="catalogPagination.currentPage === 1">&laquo; First</button>
+        <button (click)="goToPage(catalogPagination.currentPage - 1)" [disabled]="catalogPagination.currentPage === 1">Previous</button>
+        <button class="pageInfo" disabled>Page {{ catalogPagination.currentPage}} of {{catalogPagination.totalPages}}</button>
+        <button (click)="goToPage(catalogPagination.currentPage + 1)" [disabled]="catalogPagination.currentPage === catalogPagination.totalPages">Next</button>
+        <button (click)="goToPage(catalogPagination.totalPages)" [disabled]="catalogPagination.currentPage === catalogPagination.totalPages">Last &raquo;</button>
     </div>
 </main>
