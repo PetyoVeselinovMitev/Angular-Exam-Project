@@ -9,13 +9,14 @@
             <li><a routerLink="/">home</a></li>
             <li><a routerLink="/catalog">catalog</a></li>
             <li><a routerLink="/about">about</a></li>
-            <li><a routerLink="/login">login</a></li>
-            <li><a routerLink="/register">register</a></li>
+            <li *ngIf="!(isLoggedIn$ | async)"><a routerLink="/login">login</a></li>
+            <li *ngIf="!(isLoggedIn$ | async)"><a routerLink="/register">register</a></li>
         </ul>
     </nav>
     <div class="user">
-        <p>Hello Pesho</p>
-        <div class="userActions">
+        <p *ngIf="(isLoggedIn$ | async)">Hello Pesho</p>
+
+        <div *ngIf="(isLoggedIn$ | async)" class="userActions">
             <ul>
                 <li><a routerLink="/profile">profile</a></li>
                 <li><a href="#">logout</a></li>

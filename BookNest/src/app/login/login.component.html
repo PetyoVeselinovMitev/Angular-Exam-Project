@@ -1,18 +1,18 @@
 <div class="loginCointainer">
     <h2>Login</h2>
-    <form class="loginForm">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="loginForm">
         <div class="inputs">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input id="email" placeholder="pesho@abv.bg" type="email" required>
+                <input id="email" placeholder="pesho@abv.bg" formControlName="email">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input id="password" placeholder="*******" type="password" required>
+                <input id="password" placeholder="*******" type="password" formControlName="password">
             </div>
         </div>
         <div class="buttonContainer">
-            <button type="submit">Login</button>
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
         </div>
     </form>
 </div>
