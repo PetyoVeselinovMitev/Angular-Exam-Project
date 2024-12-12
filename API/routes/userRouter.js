@@ -6,9 +6,9 @@ const auth = require('../middleware/auth');
 const authAdmin = require('../middleware/authAdmin');
 const router = express.Router();
 
-router.post('/register-admin',auth, authAdmin, async (req, res) => {
+router.post('/register-admin', auth, authAdmin, async (req, res) => {
     try {
-        req.body.role = 'admin'        
+        req.body.role = 'admin'
         const user = new Users(req.body);
         await user.save();
         res.status(200).send('New admin account created.')
@@ -19,15 +19,26 @@ router.post('/register-admin',auth, authAdmin, async (req, res) => {
 
 router.post('/register', async (req, res) => {
     try {
-        req.body.role = 'user'        
+        req.body.role = 'user'
         const user = new Users(req.body);
         await user.save();
         const token = jwt.sign({ _id: user._id }, 'your_jwt_secret', { expiresIn: '1d' });
-        res.status(201).send({ user, token });
+        res.cookie('token', token)
+        res.send({ user });
     } catch (error) {
         res.status(400).send({ error: error.message });
     }
 });
+
+router.post('/logout', async (req, res) => {
+    try {
+        const dummyPayload = req.body.shit
+        res.clearCookie('token')
+        res.send({ dummyPayload })
+    } catch (error) {
+        res.status(400).send({ error: error.message })
+    }
+})
 
 router.post('/login', async (req, res) => {
     try {
@@ -41,8 +52,13 @@ router.post('/login', async (req, res) => {
             return res.status(400).send('Unable to login');
         }
 
-        const token = jwt.sign({ _id: user._id }, 'your_jwt_secret', { expiresIn: '1d' });
-        res.send({ user, token });
+        const token = jwt.sign(
+            { _id: user._id, username: user.username, role: user.role },
+            'your_jwt_secret',
+            { expiresIn: '1d' }
+        );
+        res.cookie('token', token)
+        res.send({ user });
     } catch (error) {
         res.status(400).send({ error: error.message });
     }

@@ -24,8 +24,6 @@ export class LoginComponent {
     onSubmit() {
         if (this.loginForm.valid) {
             this.authService.login(this.loginForm.value)
-            console.log(this.loginForm.value);
-            
         }
     }
 

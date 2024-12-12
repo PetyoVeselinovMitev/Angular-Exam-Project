@@ -13,10 +13,24 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
     isLoggedIn$: Observable<boolean> = new BehaviorSubject<boolean>(false).asObservable(); 
-    constructor (private authService: AuthService) {}
+    currentUser$: Observable<any>
 
-    ngOnInit(): void {
+    username: string | null = null;
+
+    constructor (private authService: AuthService) {
         this.isLoggedIn$ = this.authService.isLoggedIn
+        this.currentUser$ = this.authService.currentUser
     }
 
+    ngOnInit(): void {
+        this.currentUser$.subscribe(userData => {
+            if (userData) {
+                this.username = userData.username
+            }
+        })
+    }
+
+    logout(): void {
+        this.authService.logout()
+    }
 }

@@ -14,12 +14,12 @@
         </ul>
     </nav>
     <div class="user">
-        <p *ngIf="(isLoggedIn$ | async)">Hello Pesho</p>
+        <p *ngIf="(isLoggedIn$ | async)">Hello {{username}}</p>
 
         <div *ngIf="(isLoggedIn$ | async)" class="userActions">
             <ul>
                 <li><a routerLink="/profile">profile</a></li>
-                <li><a href="#">logout</a></li>
+                <li><a (click)="logout()" href="#">logout</a></li>
             </ul>
         </div>
     </div>
