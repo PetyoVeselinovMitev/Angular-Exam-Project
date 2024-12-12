@@ -28,7 +28,6 @@ export class AuthService {
             
             const userData = this.getUserFromCookie()
             this.currentUserData.next(userData)
-            console.log(userData);
             
             this.router.navigate(['/']);
         });
@@ -38,6 +37,10 @@ export class AuthService {
         const url = '/api/register'
         return this.http.post(url, user, { withCredentials: true }).subscribe(() => {
             this.loggedIn.next(true);
+            
+            const userData = this.getUserFromCookie()
+            this.currentUserData.next(userData)
+            
             this.router.navigate(['/'])
         })
     }

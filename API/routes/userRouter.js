@@ -22,7 +22,7 @@ router.post('/register', async (req, res) => {
         req.body.role = 'user'
         const user = new Users(req.body);
         await user.save();
-        const token = jwt.sign({ _id: user._id }, 'your_jwt_secret', { expiresIn: '1d' });
+        const token = jwt.sign({ _id: user._id, username: user.username, role: user.role }, 'your_jwt_secret', { expiresIn: '1d' });
         res.cookie('token', token)
         res.send({ user });
     } catch (error) {

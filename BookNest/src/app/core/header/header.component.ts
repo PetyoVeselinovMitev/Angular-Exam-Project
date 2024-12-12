@@ -12,21 +12,19 @@ import { BehaviorSubject, Observable } from 'rxjs';
     styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-    isLoggedIn$: Observable<boolean> = new BehaviorSubject<boolean>(false).asObservable(); 
+    isLoggedIn$: Observable<boolean> = new BehaviorSubject<boolean>(false).asObservable();
     currentUser$: Observable<any>
 
     username: string | null = null;
 
-    constructor (private authService: AuthService) {
+    constructor(private authService: AuthService) {
         this.isLoggedIn$ = this.authService.isLoggedIn
         this.currentUser$ = this.authService.currentUser
     }
 
     ngOnInit(): void {
         this.currentUser$.subscribe(userData => {
-            if (userData) {
-                this.username = userData.username
-            }
+            this.username = userData.username
         })
     }
 

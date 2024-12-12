@@ -7,7 +7,7 @@
         <button (click)="goToPage(catalogPagination.currentPage + 1)" [disabled]="catalogPagination.currentPage === catalogPagination.totalPages">Next</button>
         <button (click)="goToPage(catalogPagination.totalPages)" [disabled]="catalogPagination.currentPage === catalogPagination.totalPages">Last &raquo;</button>
     </div>
-    <div class="addBookBtn">
+    <div *ngIf="(role === 'admin')" class="addBookBtn">
         <a routerLink="add-book">Add book</a>
     </div>
     @for (book of catalogPagination.books; track $index) {
@@ -21,8 +21,8 @@
             <p><span class="firstWord">Summary: </span><br>{{book.summary}}</p>
             <div class="adminActions">
                 <ul>
-                    <li><a routerLink="add-book">Edit</a></li>
-                    <li><a href="#">Delete</a></li>
+                    <li *ngIf="(role === 'admin')"><a routerLink="add-book">Edit</a></li>
+                    <li *ngIf="(role === 'admin')"><a href="#">Delete</a></li>
                 </ul>
             </div>
         </div>
