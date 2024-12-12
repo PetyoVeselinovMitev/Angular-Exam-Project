@@ -16,6 +16,38 @@
   "username": "User",
   "password": "$2a$08$nAMupTmkhtOryrV74nOEt.DVzmqrgc1t0n/FDRCIF54hLuFABNfzW",
   "role": "user",
+  "reservedBooks": [
+    {
+      "$oid": "67570e1f8cc582fdf5bf26f0"
+    },
+    {
+      "$oid": "67570e518cc582fdf5bf26f4"
+    },
+    {
+      "$oid": "67570e838cc582fdf5bf26f8"
+    }
+  ],
+  "__v": 6
+},
+{
+  "_id": {
+    "$oid": "675ad909a69c7aa940f3af15"
+  },
+  "email": "pet@abv.bg",
+  "username": "pet",
+  "password": "$2a$08$eXmV0g2rpugtAP4A256BSO7m4GeLtU8XejSFFEi2SSVTe6VcZu11G",
+  "role": "user",
+  "reservedBooks": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "675aefe5b5658d97931605cf"
+  },
+  "email": "bori@abv.bg",
+  "username": "Bori",
+  "password": "$2a$08$z7eKKNqE1TY7EtmuQrszsOZ3juf57JMY0c4WkQFiSP0WTmNSJwWzq",
+  "role": "user",
   "reservedBooks": [],
   "__v": 0
 }]
