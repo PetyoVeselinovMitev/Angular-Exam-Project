@@ -65,9 +65,16 @@ export class AuthService {
         })
     }
 
+    userProfile(userId: string) {
+        const url = `/api/profile/?userId=${userId}`
+        return this.http.get<User>(url)
+    }
+
     private getUserFromCookie(): any {
         const decodedCookie = decodeURIComponent(document.cookie).split('.')
         const decodedPayload = JSON.parse(atob(decodedCookie[1]))
+        console.log(decodedPayload);
+        
 
         return decodedPayload
     }

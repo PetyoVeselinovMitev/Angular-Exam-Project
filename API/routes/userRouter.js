@@ -70,7 +70,21 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/profile', auth, async (req, res) => {
-    res.send(req.user);
+    const userId = req.query.userId;
+    if(!userId) {
+        res.status(404).send('Error 1');
+        return;
+    }
+    const userData = await Users
+    .findById(userId)
+    .select('username email')
+    .exec();
+
+    if (!userData) {
+        res.status(404).send('Error 2');
+        return;
+    }
+    res.status(200).send({username: userData.username, email: userData.email})
 });
 
 router.patch('/profile', auth, async (req, res) => {
