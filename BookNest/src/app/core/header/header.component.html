@@ -11,6 +11,7 @@
             <li><a routerLink="/about">about</a></li>
             <li *ngIf="!(isLoggedIn$ | async)"><a routerLink="/login">login</a></li>
             <li *ngIf="!(isLoggedIn$ | async)"><a routerLink="/register">register</a></li>
+            <li *ngIf="(role === 'admin')"><a routerLink="/register">register new admin</a></li>
         </ul>
     </nav>
     <div class="user">
@@ -19,7 +20,7 @@
         <div *ngIf="(isLoggedIn$ | async)" class="userActions">
             <ul>
                 <li><a routerLink="/profile">profile</a></li>
-                <li><a (click)="logout()" href="#">logout</a></li>
+                <li><a (click)="logout()">logout</a></li>
             </ul>
         </div>
     </div>

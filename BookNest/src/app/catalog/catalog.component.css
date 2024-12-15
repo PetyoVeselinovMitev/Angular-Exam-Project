@@ -87,10 +87,6 @@
     transition: 0.3s;
 }
 
-.addBookBtn {
-    height: 30px;
-}
-
 .addBookBtn a {
     background: #f67c4c;
     position: absolute;
@@ -117,7 +113,7 @@
 
 .topPagination {
     margin-top: 30px;
-    margin-bottom: 0px;
+    margin-bottom: 30px;
 }
 
 .pagination button {

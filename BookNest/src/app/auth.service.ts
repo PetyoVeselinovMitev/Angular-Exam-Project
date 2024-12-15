@@ -11,7 +11,9 @@ export class AuthService {
     private loggedIn = new BehaviorSubject<boolean>(false);
     private currentUserData = new BehaviorSubject<any>(null);
 
-    constructor(private http: HttpClient, private router: Router) { }
+    constructor(private http: HttpClient, private router: Router) {
+       this.checkLoginStatus() 
+     }
 
     get isLoggedIn() {
         return this.loggedIn.asObservable();
@@ -25,10 +27,10 @@ export class AuthService {
         const url = '/api/login'
         return this.http.post(url, user, { withCredentials: true }).subscribe(() => {
             this.loggedIn.next(true);
-            
+
             const userData = this.getUserFromCookie()
             this.currentUserData.next(userData)
-            
+
             this.router.navigate(['/']);
         });
     }
@@ -37,19 +39,29 @@ export class AuthService {
         const url = '/api/register'
         return this.http.post(url, user, { withCredentials: true }).subscribe(() => {
             this.loggedIn.next(true);
-            
+
             const userData = this.getUserFromCookie()
             this.currentUserData.next(userData)
-            
+
+            this.router.navigate(['/'])
+        })
+    }
+
+    registerAdmin(user: User) {
+        const url = '/api/register-admin'
+        console.log(document.cookie);
+
+        return this.http.post(url, user, { withCredentials: true }).subscribe(() => {
             this.router.navigate(['/'])
         })
     }
 
     logout() {
         const url = '/api/logout'
-        const dummyPayload = {data: 1337}
-        return this.http.post(url, dummyPayload, { withCredentials: true }).subscribe(() => {
+        return this.http.post(url, null, { withCredentials: true }).subscribe(() => {
             this.loggedIn.next(false);
+            this.currentUserData.next(null);
+            this.router.navigate(['/'])
         })
     }
 
@@ -58,5 +70,19 @@ export class AuthService {
         const decodedPayload = JSON.parse(atob(decodedCookie[1]))
 
         return decodedPayload
+    }
+
+    checkLoginStatus() {
+        const url = '/api/check-auth'
+        this.http.get(url, { withCredentials: true }).subscribe(
+            (userData: any) => {
+                this.loggedIn.next(true);
+                this.currentUserData.next(userData)
+            },
+            () => {
+                this.loggedIn.next(false);
+                this.currentUserData.next(null)
+            }
+        )
     }
 }

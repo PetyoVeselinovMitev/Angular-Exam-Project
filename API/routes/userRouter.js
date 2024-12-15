@@ -6,12 +6,16 @@ const auth = require('../middleware/auth');
 const authAdmin = require('../middleware/authAdmin');
 const router = express.Router();
 
+router.get('/check-auth', auth, (req, res) => {
+    res.status(200).send(req.user)
+})
+
 router.post('/register-admin', auth, authAdmin, async (req, res) => {
     try {
         req.body.role = 'admin'
         const user = new Users(req.body);
         await user.save();
-        res.status(200).send('New admin account created.')
+        res.status(200).send({status: 'New admin account created.'})
     } catch (error) {
         res.status(400).send({ error: error.message });
     }
@@ -22,7 +26,9 @@ router.post('/register', async (req, res) => {
         req.body.role = 'user'
         const user = new Users(req.body);
         await user.save();
-        const token = jwt.sign({ _id: user._id, username: user.username, role: user.role }, 'your_jwt_secret', { expiresIn: '1d' });
+        const token = jwt.sign({ _id: user._id, username: user.username, role: user.role },
+            'secret',
+            { expiresIn: '1d', algorithm: 'HS256' });
         res.cookie('token', token)
         res.send({ user });
     } catch (error) {
@@ -32,9 +38,8 @@ router.post('/register', async (req, res) => {
 
 router.post('/logout', async (req, res) => {
     try {
-        const dummyPayload = req.body.shit
         res.clearCookie('token')
-        res.send({ dummyPayload })
+        res.send({ status: 'Logged out' })
     } catch (error) {
         res.status(400).send({ error: error.message })
     }
@@ -54,8 +59,8 @@ router.post('/login', async (req, res) => {
 
         const token = jwt.sign(
             { _id: user._id, username: user.username, role: user.role },
-            'your_jwt_secret',
-            { expiresIn: '1d' }
+            'secret',
+            { expiresIn: '1d', algorithm: 'HS256' }
         );
         res.cookie('token', token)
         res.send({ user });

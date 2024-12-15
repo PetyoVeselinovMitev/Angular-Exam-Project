@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
     currentUser$: Observable<any>
 
     username: string | null = null;
+    role: string | null = null;
 
     constructor(private authService: AuthService) {
         this.isLoggedIn$ = this.authService.isLoggedIn
@@ -24,7 +25,8 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit(): void {
         this.currentUser$.subscribe(userData => {
-            this.username = userData.username
+            this.username = userData?.username || null
+            this.role = userData?.role || null
         })
     }
 
