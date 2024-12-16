@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ApiService } from '../api.service';
 import { CatalogPagination } from '../../types/catalogPagination';
 import { NgIf, ViewportScroller } from '@angular/common';
@@ -25,7 +25,8 @@ export class CatalogComponent implements OnInit {
     constructor(
         private Api: ApiService,
         private viewportScroller: ViewportScroller,
-        private authService: AuthService
+        private authService: AuthService,
+        private router: Router
     ) {
         this.currentUser$ = this.authService.currentUser
     }
@@ -54,5 +55,13 @@ export class CatalogComponent implements OnInit {
 
     scrollToTop(): void {
         this.viewportScroller.scrollToPosition([0, 0])
+    }
+
+    deleteBook(bookId: string) {
+        this.Api.deleteBook(bookId).subscribe(() => {
+            this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+                this.router.navigate(['/catalog'])
+            })
+        })
     }
 }

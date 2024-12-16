@@ -23,8 +23,8 @@
             <p><span class="firstWord">Summary: </span><br>{{book.summary}}</p>
             <div class="adminActions">
                 <ul>
-                    <li *ngIf="(role === 'admin')"><a routerLink="add-book">Edit</a></li>
-                    <li *ngIf="(role === 'admin')"><a href="#">Delete</a></li>
+                    <li *ngIf="(role === 'admin')"><a routerLink="/add-book">Edit</a></li>
+                    <li *ngIf="(role === 'admin')"><a (click)="deleteBook(book._id)">Delete</a></li>
                 </ul>
             </div>
         </div>

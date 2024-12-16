@@ -1,48 +1,49 @@
 <div class="add-book-container">
     <h2>Add Book</h2>
-    <form id="add-book-form">
+    <form [formGroup]="addBookForm" (ngSubmit)="onSubmit()" id="add-book-form">
         <div class="form-group">
             <label for="title">Title</label>
-            <input id="title" type="text" required>
+            <input id="title" type="text" formControlName="title">
         </div>
         <div class="form-group">
             <label for="author">Author</label>
-            <input id="author" type="text" required>
+            <input id="author" type="text" formControlName="author">
         </div>
         <div class="form-group">
             <label for="imageUrl">Image URL</label>
-            <input id="imageUrl" type="text" required>
+            <input id="imageUrl" type="text" formControlName="imageUrl">
         </div>
         <div class="form-group">
             <label for="ISBN">ISBN</label>
-            <input id="ISBN" type="text" required>
+            <input id="ISBN" type="text" formControlName="ISBN">
         </div>
         <div class="form-group">
             <label for="publicationDate">Publication Date</label>
-            <input id="publicationDate" type="date" required>
+            <input id="publicationDate" type="date" formControlName="publicationDate">
         </div>
         <div class="form-group">
             <label for="genre">Genre</label>
-            <input id="genre" type="text" required>
+            <input id="genre" type="text" formControlName="genre">
         </div>
         <div class="form-group">
             <label for="summary">Summary</label>
-            <textarea id="summary"></textarea>
+            <textarea id="summary" formControlName="summary"></textarea>
         </div>
         <div class="form-group">
             <label for="language">Language</label>
-            <input id="language" type="text" required>
+            <input id="language" type="text" formControlName="language">
         </div>
         <div class="form-group">
             <label for="numberOfPages">Number of Pages</label>
-            <input id="numberOfPages" type="number" required>
+            <input id="numberOfPages" type="number" formControlName="numberOfPages">
         </div>
-        <div class="form-group"> <label for="publisher">Publisher</label>
-            <input id="publisher" type="text" required>
+        <div class="form-group">
+            <label for="publisher">Publisher</label>
+            <input id="publisher" type="text" formControlName="publisher">
         </div>
         <div class="form-group">
             <label for="availableCopies">Available Copies</label>
-            <input id="availableCopies" type="number" value="1" required>
-        </div> <button type="submit">Add Book</button>
+            <input id="availableCopies" type="number" value="1" formControlName="availableCopies">
+        </div> <button type="submit" >Add Book</button>
     </form>
 </div>

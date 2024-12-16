@@ -33,4 +33,14 @@ export class ApiService {
         let url =`/api/books/${bookId}/return`;
         return this.http.post(url, null)
     }
+
+    postNewBook(book: object) {
+        let url = '/api/books'
+        return this.http.post(url, book)
+    }
+
+    deleteBook(bookId: string) {
+        let url = `/api/books/${bookId}`
+        return this.http.delete(url)
+    }
 }
