@@ -3,7 +3,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AboutComponent } from './about/about.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { DetailsComponent } from './details/details.component';
@@ -14,10 +13,9 @@ export const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'profile', component: ProfileComponent},
-    {path: 'edit-profile', component: EditProfileComponent},
     {path: 'about', component: AboutComponent},
     {path: 'catalog', component: CatalogComponent},
-    {path: 'details', component: DetailsComponent},
+    {path: 'book-details/:id', component: DetailsComponent},
     {path: 'add-book', component: AddBookComponent}
 
 ];

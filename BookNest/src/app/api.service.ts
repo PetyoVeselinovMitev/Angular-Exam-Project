@@ -18,4 +18,19 @@ export class ApiService {
         let url = `/api/books-short/?page=${page}`
         return this.http.get<CatalogPagination>(url);
     }
+
+    getBookDetails(bookId: string) {
+        let url = `/api/books/${bookId}`;
+        return this.http.get<Books>(url)
+    }
+
+    reserveBook(bookId: string) {
+        let url =`/api/books/${bookId}/reserve`;
+        return this.http.post(url, null)
+    }
+
+    returnBook(bookId: string) {
+        let url =`/api/books/${bookId}/return`;
+        return this.http.post(url, null)
+    }
 }

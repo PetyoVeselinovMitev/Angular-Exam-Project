@@ -13,12 +13,13 @@
             <p class="noBooks">No reserved books yet.</p>
             } @else {
             @for (book of profileData.reservedBooksData; track $index ) {
-                <div class="card">
-                    <img src={{book.imageUrl}}
-                        alt="bookCover">
-                    <h2>{{book.title}}</h2>
-                    <button class="returnBtn">Return</button>
-                </div>
+            <div class="card">
+                <a [routerLink]="['/book-details' , book._id]">
+                    <img src={{book.imageUrl}} alt="bookCover">
+                </a>
+                <h2>{{book.title}}</h2>
+                <button (click)="onSubmit(book._id)" class="returnBtn">Return</button>
+            </div>
             }
             }
         </div>

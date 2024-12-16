@@ -10,4 +10,5 @@ export interface Books {
     numberOfPages: Number,
     publisher: String,
     availableCopies: Number
+    _id: string
 }

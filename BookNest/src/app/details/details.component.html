@@ -1,34 +1,24 @@
 <div class="details">
     <div class="imgContainer">
-        <img src="https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
-            alt="bookCover">
+        <img src={{bookData.imageUrl}} alt="bookCover">
     </div>
     <div class="summary">
-        <p><span class="firstWord">Title: </span>A Million to One</p>
-        <p><span class="firstWord">Author: </span> Tony Faggioli</p>
-        <p><span class="firstWord">Genre: </span> Horror fiction, Mystery, Urban fantasy, Paranormal
-            fiction, Paranormal Fantasy
-        </p>
-        <p><span class="firstWord">Pages: </span>312</p>
-        <p><span class="firstWord">Summary: </span>
-            Detective Napoleon Villa’s latest case is spiraling out
-            of control. Drawing on his
-            skills,
-            he battles to save former suspect Kyle Fasano from becoming the next victim.
-            Yet no amount of training or experience could prepare him for the latest twist in the
-            investigation.
-            Kyle disappears in a loss that reverberates through his community, leaving his wife, Tamara, and
-            their children under attack by forces beyond comprehension. Determined to protect her kids,
-            Tamara
-            must rely on her faith and her wits as she faces absolute evil.
-        </p>
-        <p><span class="firstWord">Publication date: </span>23.04.2013</p>
-        <p><span class="firstWord">Language: </span>English</p>
-        <p><span class="firstWord">ISBN: </span>312-3412-323-32</p>
-        <p><span class="firstWord">Publisher: </span>Colibri</p>
+        <p><span class="firstWord">Title: </span> {{bookData.title}}</p>
+        <p><span class="firstWord">Author: </span> {{bookData.author}}</p>
+        <p><span class="firstWord">Genre: </span> {{bookData.genre}}</p>
+        <p><span class="firstWord">Pages: </span> {{bookData.numberOfPages}}</p>
+        <p><span class="firstWord">Summary: </span> {{bookData.summary}} </p>
+        <p><span class="firstWord">Publication date: </span> {{bookData.publicationDate}}</p>
+        <p><span class="firstWord">Language: </span> {{bookData.language}}</p>
+        <p><span class="firstWord">ISBN: </span> {{bookData.ISBN}}</p>
+        <p><span class="firstWord">Publisher: </span> {{bookData.publisher}}</p>
         <div class="reserve">
-            <p><span class="firstWord">Available Copies: </span>5</p>
-            <button class="reserveBtn">Reserve</button>
+            <p><span class="firstWord">Available Copies: </span> {{bookData.availableCopies}}</p>
+            @if (username) {
+            <button (click)="onSubmit(bookData._id)" class="reserveBtn"> Reserve </button>
+            } @else {
+            <a class="reserveBtn" routerLink="/login"> Login to reserve</a>
+            }
         </div>
     </div>
 </div>

@@ -33,6 +33,7 @@
 .reserve {
     display: flex;
     align-items: center;
+    margin-top: 35px;
 }
 
 .reserveBtn {

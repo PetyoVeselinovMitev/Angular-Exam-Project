@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { User } from '../../types/users';
+import { ApiService } from '../api.service';
 
 @Component({
     selector: 'app-profile',
     standalone: true,
-    imports: [],
+    imports: [RouterLink],
     templateUrl: './profile.component.html',
     styleUrl: './profile.component.css'
 })
@@ -21,7 +22,7 @@ export class ProfileComponent implements OnInit {
 
     userId: string | null = null;
 
-    constructor(private authService: AuthService) {
+    constructor(private authService: AuthService, private api: ApiService, private router: Router) {
         this.currentUser$ = this.authService.currentUser
     }
 
@@ -37,10 +38,18 @@ export class ProfileComponent implements OnInit {
     loadProfile(userId: string): void {
         this.authService.userProfile(userId).subscribe(
             (response: User) => {
-                console.log(response);
                 this.profileData = response
             }
         )
+    }
+    
+
+    onSubmit(bookId: string) {
+        this.api.returnBook(bookId).subscribe(() => {
+            this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+                this.router.navigate(['/profile'])
+            })
+        })
     }
 
 }

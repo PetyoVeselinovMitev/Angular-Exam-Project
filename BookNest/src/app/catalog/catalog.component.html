@@ -13,7 +13,9 @@
     @for (book of catalogPagination.books; track $index) {
     <div class="bookCard">
         <div class="bookCover">
-            <img [src]='book.imageUrl' [alt]="book.title">
+            <a [routerLink]="['/book-details', book._id]">
+                <img [src]='book.imageUrl' [alt]="book.title">
+            </a>
         </div>
         <div class="bookInfo">
             <h3>{{book.title}}</h3>

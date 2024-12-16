@@ -6,7 +6,7 @@
 <div class="cardsContainer">
     @for (book of books; track $index) {
         <div class="card">
-            <a href="#">
+            <a [routerLink]="['/book-details' , book._id]">
                 <img src="{{book.imageUrl}}"
                     alt="bookCover">
                 <h3>{{book.title}}</h3>
