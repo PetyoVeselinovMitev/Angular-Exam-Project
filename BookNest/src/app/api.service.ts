@@ -39,6 +39,11 @@ export class ApiService {
         return this.http.post(url, book)
     }
 
+    editBook(bookId: string, book: object) {
+        let url = `/api/books/${bookId}`;
+        return this.http.patch(url, book)
+    }
+
     deleteBook(bookId: string) {
         let url = `/api/books/${bookId}`
         return this.http.delete(url)
