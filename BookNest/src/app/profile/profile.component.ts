@@ -7,7 +7,7 @@ import { User } from '../../types/users';
 @Component({
     selector: 'app-profile',
     standalone: true,
-    imports: [RouterLink],
+    imports: [],
     templateUrl: './profile.component.html',
     styleUrl: './profile.component.css'
 })

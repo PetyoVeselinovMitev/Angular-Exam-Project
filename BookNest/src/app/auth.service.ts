@@ -49,7 +49,6 @@ export class AuthService {
 
     registerAdmin(user: User) {
         const url = '/api/register-admin'
-        console.log(document.cookie);
 
         return this.http.post(url, user, { withCredentials: true }).subscribe(() => {
             this.router.navigate(['/'])
@@ -73,8 +72,6 @@ export class AuthService {
     private getUserFromCookie(): any {
         const decodedCookie = decodeURIComponent(document.cookie).split('.')
         const decodedPayload = JSON.parse(atob(decodedCookie[1]))
-        console.log(decodedPayload);
-        
 
         return decodedPayload
     }

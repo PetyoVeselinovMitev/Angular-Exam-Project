@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const auth = require('../middleware/auth');
 const authAdmin = require('../middleware/authAdmin');
+const Book = require('../models/booksModel');
 const router = express.Router();
 
 router.get('/check-auth', auth, (req, res) => {
@@ -71,20 +72,33 @@ router.post('/login', async (req, res) => {
 
 router.get('/profile', auth, async (req, res) => {
     const userId = req.query.userId;
+
     if(!userId) {
-        res.status(404).send('Error 1');
+        res.status(404).send('No user id found');
         return;
     }
     const userData = await Users
     .findById(userId)
-    .select('username email')
+    .select('username email reservedBooks')
     .exec();
 
     if (!userData) {
-        res.status(404).send('Error 2');
+        res.status(404).send('User not found');
         return;
     }
-    res.status(200).send({username: userData.username, email: userData.email})
+
+    const booksData = []
+
+    for (bookId of userData.reservedBooks) {
+        const bookData = await Book
+        .findById(bookId)
+        .select('title imageUrl')
+        .exec();
+        
+        booksData.push(bookData)
+    }
+
+    res.status(200).send({username: userData.username, email: userData.email, reservedBooks: userData.reservedBooks, reservedBooksData: booksData})
 });
 
 router.patch('/profile', auth, async (req, res) => {

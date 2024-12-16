@@ -44,8 +44,7 @@
 }
 
 .userInfo {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    font-size: 1.4rem;
 }
 
 .firstWord {
@@ -67,6 +66,12 @@
     transform: translateX(-50%);
     top: -15px;
     opacity: 0.5;
+}
+
+.noBooks {
+    margin: auto;
+    font-size: 1.8rem;
+    margin-top: 150px;
 }
 
 .cardsContainer {
@@ -97,7 +102,8 @@
     transition: 0.3s;
 }
 
-.returnBtn:hover, .userInfoContainer a:hover  {
+.returnBtn:hover,
+.userInfoContainer a:hover {
     background: #b54d24;
     cursor: pointer;
 }

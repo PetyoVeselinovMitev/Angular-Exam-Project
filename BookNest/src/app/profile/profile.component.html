@@ -5,41 +5,22 @@
             <p><span class="firstWord">Username: </span>{{profileData.username}}</p>
             <p><span class="firstWord">Email: </span>{{profileData.email}}</p>
         </div>
-        <a routerLink="edit-profile">Edit profile</a>
     </div>
     <div class="reservedBooks">
         <h2>Reserved Books</h2>
         <div class="cardsContainer">
-            <div class="card">
-                <img src="https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
-                    alt="bookCover">
-                <h2>A Million to One</h2>
-                <button class="returnBtn">Return</button>
-            </div>
-            <div class="card">
-                <img src="https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
-                    alt="bookCover">
-                <h2>A Million to One</h2>
-                <button class="returnBtn">Return</button>
-            </div>
-            <div class="card">
-                <img src="https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
-                    alt="bookCover">
-                <h2>A Million to One</h2>
-                <button class="returnBtn">Return</button>
-            </div>
-            <div class="card">
-                <img src="https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
-                    alt="bookCover">
-                <h2>A Million to One</h2>
-                <button class="returnBtn">Return</button>
-            </div>
-            <div class="card">
-                <img src="https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
-                    alt="bookCover">
-                <h2>A Million to One</h2>
-                <button class="returnBtn">Return</button>
-            </div>
+            @if (profileData.reservedBooks?.length == 0 ) {
+            <p class="noBooks">No reserved books yet.</p>
+            } @else {
+            @for (book of profileData.reservedBooksData; track $index ) {
+                <div class="card">
+                    <img src={{book.imageUrl}}
+                        alt="bookCover">
+                    <h2>{{book.title}}</h2>
+                    <button class="returnBtn">Return</button>
+                </div>
+            }
+            }
         </div>
     </div>
 </main>
