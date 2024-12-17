@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, map, Observable } from "rxjs";
 import { User } from "../types/users";
 
 @Injectable({
@@ -10,6 +10,14 @@ import { User } from "../types/users";
 export class AuthService {
     private loggedIn = new BehaviorSubject<boolean>(false);
     private currentUserData = new BehaviorSubject<any>(null);
+    private isInitialized = false;
+
+    userFromCookie: User = {
+        username: '',
+        email: '',
+        role: '',
+        _id: ''
+    }
 
     constructor(private http: HttpClient, private router: Router) {
        this.checkLoginStatus() 
@@ -22,6 +30,31 @@ export class AuthService {
     get currentUser() {
         return this.currentUserData.asObservable();
     }
+
+    guardData(): Observable<boolean> {
+        this.userFromCookie = this.getUserFromCookie();
+        if (!this.userFromCookie || !this.userFromCookie._id) {
+            this.loggedIn.next(false);
+            this.currentUserData.next(null);
+            return new Observable<boolean>(observer => observer.next(false));
+        }
+    
+        const url = `/api/profile/?userId=${this.userFromCookie._id}`;
+        return this.http.get<User>(url).pipe(
+            map((response: User) => {
+                if (response) {
+                    this.loggedIn.next(true);
+                    this.currentUserData.next(response);
+                    return true;
+                } else {
+                    this.loggedIn.next(false);
+                    this.currentUserData.next(null);
+                    return false;
+                }
+            })
+        );
+    }
+    
 
     login(user: User) {
         const url = '/api/login'
@@ -77,11 +110,16 @@ export class AuthService {
     }
 
     checkLoginStatus() {
+        if(this.isInitialized) {
+            return
+        }
+
         const url = '/api/check-auth'
         this.http.get(url, { withCredentials: true }).subscribe(
             (userData: any) => {
                 this.loggedIn.next(true);
-                this.currentUserData.next(userData)
+                this.currentUserData.next(userData);
+                this.isInitialized = true;
             },
             () => {
                 this.loggedIn.next(false);

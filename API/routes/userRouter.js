@@ -16,7 +16,7 @@ router.post('/register-admin', auth, authAdmin, async (req, res) => {
         req.body.role = 'admin'
         const user = new Users(req.body);
         await user.save();
-        res.status(200).send({status: 'New admin account created.'})
+        res.status(200).send({ status: 'New admin account created.' })
     } catch (error) {
         res.status(400).send({ error: error.message });
     }
@@ -73,14 +73,14 @@ router.post('/login', async (req, res) => {
 router.get('/profile', auth, async (req, res) => {
     const userId = req.query.userId;
 
-    if(!userId) {
+    if (!userId) {
         res.status(404).send('No user id found');
         return;
     }
     const userData = await Users
-    .findById(userId)
-    .select('username email reservedBooks')
-    .exec();
+        .findById(userId)
+        .select('username email reservedBooks role')
+        .exec();
 
     if (!userData) {
         res.status(404).send('User not found');
@@ -91,14 +91,21 @@ router.get('/profile', auth, async (req, res) => {
 
     for (bookId of userData.reservedBooks) {
         const bookData = await Book
-        .findById(bookId)
-        .select('title imageUrl')
-        .exec();
-        
+            .findById(bookId)
+            .select('title imageUrl')
+            .exec();
+
         booksData.push(bookData)
     }
 
-    res.status(200).send({username: userData.username, email: userData.email, reservedBooks: userData.reservedBooks, reservedBooksData: booksData})
+    res.status(200).send({
+        username: userData.username,
+        email: userData.email,
+        reservedBooks: userData.reservedBooks,
+        role: userData.role,
+        reservedBooksData: booksData,
+        _id: userData._id
+    })
 });
 
 router.patch('/profile', auth, async (req, res) => {
