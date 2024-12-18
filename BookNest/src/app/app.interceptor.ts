@@ -1,8 +1,6 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { environment } from '../environments/environment.development';
-import { catchError } from 'rxjs';
-import { inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { catchError, throwError } from 'rxjs';
 
 const { apiUrl } = environment;
 const API = '/api';
@@ -15,18 +13,9 @@ export const appInterceptor: HttpInterceptorFn = (req, next) => {
     });
   }
 
-  const router = inject(Router);
-
   return next(req).pipe(
     catchError((err) => {
-      if (err.status === 401) {
-        router.navigate(['/login']);
-      }
-      // else {
-      //   router.navigate(['/error']);
-      // }
-
-      return [err];
+      return throwError(err);
     })
   );
 };

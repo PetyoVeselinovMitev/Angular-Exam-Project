@@ -11,6 +11,11 @@
                 <input id="password" placeholder="*******" type="password" formControlName="password">
             </div>
         </div>
+        @if (errorMsg) {
+            <div class="error">
+                <p>{{errorMsg}}</p>
+            </div>
+        }
         <div class="buttonContainer">
             <button type="submit" [disabled]="loginForm.invalid">Login</button>
         </div>

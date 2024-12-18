@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 })
 export class LoginComponent {
     loginForm: FormGroup
+    errorMsg: string | null = null;
 
     constructor (private fb: FormBuilder, private authService: AuthService) {
         this.loginForm = this.fb.group({
@@ -23,7 +24,15 @@ export class LoginComponent {
 
     onSubmit() {
         if (this.loginForm.valid) {
-            this.authService.login(this.loginForm.value)
+            this.authService.login(this.loginForm.value).subscribe({
+                next: () => {
+                    this.errorMsg = null;
+                },
+                error: (error) => {
+                    console.error(error);
+                    this.errorMsg = error
+                }
+            })
         }
     }
 
