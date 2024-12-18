@@ -31,7 +31,7 @@ export class AdminGuard implements CanActivate {
             })
           );
         } else {
-          this.router.navigate(['/']);
+          this.router.navigate(['/home']);
           return of(false);
         }
       })

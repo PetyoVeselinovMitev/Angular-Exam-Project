@@ -12,13 +12,15 @@ import { AuthGuard } from './auth.guard';
 import { AdminGuard } from './admin.guard';
 
 export const routes: Routes = [
-    {path: '', component: HomeComponent},
+    {path: 'home', component: HomeComponent},
     {path: 'login', component: LoginComponent},
+    {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'register', component: RegisterComponent},
     {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
     {path: 'about', component: AboutComponent},
     {path: 'catalog', component: CatalogComponent},
     {path: 'book-details/:id', component: DetailsComponent},
     {path: 'catalog/add-book', component: AddBookComponent, canActivate: [AdminGuard]},
-    {path: 'catalog/edit-book/:id', component: EditBookComponent, canActivate: [AdminGuard]}
+    {path: 'catalog/edit-book/:id', component: EditBookComponent, canActivate: [AdminGuard]},
+    {path: '**', redirectTo: 'home'}
 ];

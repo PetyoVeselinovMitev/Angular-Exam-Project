@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { BehaviorSubject, map, Observable } from "rxjs";
+import { BehaviorSubject, catchError, finalize, map, Observable, tap, throwError } from "rxjs";
 import { User } from "../types/users";
 
 @Injectable({
@@ -20,8 +20,8 @@ export class AuthService {
     }
 
     constructor(private http: HttpClient, private router: Router) {
-       this.checkLoginStatus() 
-     }
+        this.checkLoginStatus()
+    }
 
     get isLoggedIn() {
         return this.loggedIn.asObservable();
@@ -38,7 +38,7 @@ export class AuthService {
             this.currentUserData.next(null);
             return new Observable<boolean>(observer => observer.next(false));
         }
-    
+
         const url = `/api/profile/?userId=${this.userFromCookie._id}`;
         return this.http.get<User>(url).pipe(
             map((response: User) => {
@@ -51,22 +51,57 @@ export class AuthService {
                     this.currentUserData.next(null);
                     return false;
                 }
+            }),
+            catchError((error) => {
+                this.loggedIn.next(false);
+                this.currentUserData.next(null);
+                return throwError(() => {
+                    new Error('Error fetching user data')
+                })
             })
         );
     }
-    
+
 
     login(user: User) {
         const url = '/api/login'
-        return this.http.post(url, user, { withCredentials: true }).subscribe(() => {
-            this.loggedIn.next(true);
+        return this.http.post(url, user, { withCredentials: true }).pipe(
+            tap((response) => {
+                console.log(response);
+                this.loggedIn.next(true);
 
-            const userData = this.getUserFromCookie()
-            this.currentUserData.next(userData)
+                const userData = this.getUserFromCookie()
+                this.currentUserData.next(userData)
+                this.router.navigate(['/home']);
+            })
+        )
+    };
 
-            this.router.navigate(['/']);
-        });
-    }
+    // login(user: User) {
+    //     const url = '/api/login'
+    //     return this.http.post(url, user, { withCredentials: true }).pipe(
+    //         tap((response) => {
+    //             console.log('Login successful', response);
+
+    //             this.loggedIn.next(true);
+
+    //             const userData = this.getUserFromCookie();
+    //             this.currentUserData.next(userData);
+    //             this.router.navigate(['/home'])
+    //         }),
+    //         catchError((error) => {
+    //             console.log('Error caught in login', error);
+    //             const errorMsg = error.error?.message || error.message || 'Login failed. Please try again.'
+    //             return throwError(() => {
+    //                 new Error(errorMsg)
+    //             })
+    //         }),
+    //         finalize(() => {
+    //             console.log('Login request completed with eithere success or error.');
+
+    //         })
+    //     )
+    // }
 
     register(user: User) {
         const url = '/api/register'
@@ -76,7 +111,7 @@ export class AuthService {
             const userData = this.getUserFromCookie()
             this.currentUserData.next(userData)
 
-            this.router.navigate(['/'])
+            this.router.navigate(['/home'])
         })
     }
 
@@ -84,7 +119,7 @@ export class AuthService {
         const url = '/api/register-admin'
 
         return this.http.post(url, user, { withCredentials: true }).subscribe(() => {
-            this.router.navigate(['/'])
+            this.router.navigate(['/home'])
         })
     }
 
@@ -93,7 +128,7 @@ export class AuthService {
         return this.http.post(url, null, { withCredentials: true }).subscribe(() => {
             this.loggedIn.next(false);
             this.currentUserData.next(null);
-            this.router.navigate(['/'])
+            this.router.navigate(['/home'])
         })
     }
 
@@ -110,7 +145,7 @@ export class AuthService {
     }
 
     checkLoginStatus() {
-        if(this.isInitialized) {
+        if (this.isInitialized) {
             return
         }
 

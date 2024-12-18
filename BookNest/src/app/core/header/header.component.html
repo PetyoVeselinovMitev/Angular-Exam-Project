@@ -6,7 +6,7 @@
     </div>
     <nav class="navigation">
         <ul>
-            <li><a routerLink="/">home</a></li>
+            <li><a routerLink="/home">home</a></li>
             <li><a routerLink="/catalog">catalog</a></li>
             <li><a routerLink="/about">about</a></li>
             <li *ngIf="!(isLoggedIn$ | async)"><a routerLink="/login">login</a></li>
