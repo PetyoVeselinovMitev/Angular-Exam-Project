@@ -95,7 +95,7 @@ export class AuthService {
             const userData = this.getUserFromCookie()
             this.currentUserData.next(userData)
 
-            this.router.navigate(['/'])
+            this.router.navigate(['/home'])
         })
     }
 
@@ -103,7 +103,7 @@ export class AuthService {
         const url = '/api/register-admin'
 
         return this.http.post(url, user, { withCredentials: true }).subscribe(() => {
-            this.router.navigate(['/'])
+            this.router.navigate(['/home'])
         })
     }
 
@@ -112,7 +112,7 @@ export class AuthService {
         return this.http.post(url, null, { withCredentials: true }).subscribe(() => {
             this.loggedIn.next(false);
             this.currentUserData.next(null);
-            this.router.navigate(['/'])
+            this.router.navigate(['/home'])
         })
     }
 

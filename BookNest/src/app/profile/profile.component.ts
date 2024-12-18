@@ -56,7 +56,7 @@ export class ProfileComponent implements OnInit {
 
   onSubmit(bookId: string): void {
     this.api.returnBook(bookId).subscribe(() => {
-      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
         this.router.navigate(['/profile']);
       });
     });
