@@ -50,12 +50,12 @@ router.post('/login', async (req, res) => {
     try {
         const user = await Users.findOne({ email: req.body.email });
         if (!user) {
-            return res.status(401).json({ "error": 'Unable to login' });
+            return res.status(400).send('Unable to login');
         }
 
         const isMatch = await bcrypt.compare(req.body.password, user.password);
         if (!isMatch) {
-            return res.status(401).json({ "error": 'Unable to login' });
+            return res.status(400).send('Unable to login');
         }
 
         const token = jwt.sign(
@@ -66,7 +66,7 @@ router.post('/login', async (req, res) => {
         res.cookie('token', token)
         res.send({ user });
     } catch (error) {
-        res.status(400).json({ "error": error.message });
+        res.status(400).send({ error: error.message });
     }
 });
 
