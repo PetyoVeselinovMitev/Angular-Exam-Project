@@ -70,7 +70,11 @@ router.post('/books', auth, authAdmin, async (req, res) => {
         await book.save();
         res.status(201).send(book);
     } catch (error) {
-        res.status(400).send({ error: error.message });
+        if (error.code = 11000) {
+            res.status(400).send({ error: 'A book with this ISBN already exists'})
+        } else {
+            res.status(400).send({ error: error.message });
+        }
     }
 });
 
@@ -82,7 +86,11 @@ router.patch('/books/:id', auth, authAdmin, async (req, res) => {
         }
         res.send(book);
     } catch (error) {
-        res.status(400).send({ error: error.message });
+        if (error.code == 11000) {
+            res.status(400).json({ error: 'A book with this ISBN already exists'})
+        } else {
+            res.status(400).json({ error: error.message });
+        }
     }
 });
 

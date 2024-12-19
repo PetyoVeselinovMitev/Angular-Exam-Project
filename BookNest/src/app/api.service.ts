@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Books } from "../types/books";
 import { CatalogPagination } from "../types/catalogPagination";
+import { catchError, map, throwError } from "rxjs";
 
 @Injectable({
     providedIn: 'root',
@@ -36,12 +37,20 @@ export class ApiService {
 
     postNewBook(book: object) {
         let url = '/api/books'
-        return this.http.post(url, book)
+        return this.http.post(url, book).pipe(
+            catchError((error) => {
+                return throwError(() => new Error(error.error.error))
+            })
+        )
     }
 
     editBook(bookId: string, book: object) {
         let url = `/api/books/${bookId}`;
-        return this.http.patch(url, book)
+        return this.http.patch(url, book).pipe(
+            catchError((error) => {
+                return throwError(() => new Error(error.error.error))
+            })
+        )
     }
 
     deleteBook(bookId: string) {

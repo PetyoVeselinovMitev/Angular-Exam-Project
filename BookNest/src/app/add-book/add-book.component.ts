@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
     styleUrl: './add-book.component.css'
 })
 export class AddBookComponent {
-    addBookForm: FormGroup
+    addBookForm: FormGroup;
+    errorMsg: string | null = null;
 
     constructor(private fb: FormBuilder, private api: ApiService, private router: Router) {
         this.addBookForm = this.fb.group({
@@ -31,8 +32,13 @@ export class AddBookComponent {
 
     onSubmit() {
         if (this.addBookForm.valid) {
-            this.api.postNewBook(this.addBookForm.value).subscribe(() => {
-                this.router.navigate(['/catalog'])
+            this.api.postNewBook(this.addBookForm.value).subscribe( {
+                next: () => {
+                    this.router.navigate(['/catalog'])
+                },
+                error: (error) => {
+                    this.errorMsg = error
+                }
             })
         }
     }

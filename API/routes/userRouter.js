@@ -14,28 +14,22 @@ router.get('/check-auth', auth, (req, res) => {
 router.post('/register-admin', auth, authAdmin, async (req, res) => {
     try {
         req.body.role = 'admin'
-
-        const existingUser = await Users.findOne({email: req.body.email});
-        if (existingUser) {
-            return res.status(400).json({ error: 'A user with this email already exists.'})
-        }
         const user = new Users(req.body);
 
         await user.save();
         res.status(200).send({ status: 'New admin account created.' })
     } catch (error) {
-        res.status(400).send({ error: error.message });
+        if (error.code = 11000) {
+            res.status(400).json({ error: 'A user with this email already exists.'})
+        } else {
+            res.status(400).send({ error: error.message });
+        }
     }
 });
 
 router.post('/register', async (req, res) => {
     try {
         req.body.role = 'user'
-
-        const existingUser = await Users.findOne({email: req.body.email});
-        if (existingUser) {
-            return res.status(400).json({ error: 'A user with this email already exists.'})
-        }
         const user = new Users(req.body);
         
         await user.save();
@@ -46,7 +40,11 @@ router.post('/register', async (req, res) => {
         res.cookie('token', token)
         res.send({ user });
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        if (error.code = 11000) {
+            res.status(400).json({ error: 'A user with this email already exists.'})
+        } else {
+            res.status(400).json({ error: error.message });
+        }
     }
 });
 

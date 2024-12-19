@@ -66,3 +66,11 @@ button {
 button:hover {
     background-color: #b54d24;
 }
+
+.error p{
+    text-align: center;
+    border: 1px solid #f9eacd;
+    padding: 5px 10px;
+    border-radius: 25px;
+    color: red;
+}

@@ -34,7 +34,7 @@ export class CatalogComponent implements OnInit {
     ngOnInit(): void {
         this.loadBooks(this.catalogPagination.currentPage);
         this.currentUser$.subscribe(userData => {
-            this.role = userData.role
+            this.role = userData?.role || null
         })
     }
 

@@ -13,6 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditBookComponent implements OnInit {
     editBookForm: FormGroup
     bookId: string | null = null;
+    errorMsg: string | null = null;
 
     constructor(
         private fb: FormBuilder,
@@ -51,8 +52,13 @@ export class EditBookComponent implements OnInit {
     onSubmit() {
         if (this.editBookForm.valid) {
             if (this.bookId) {
-                this.api.editBook(this.bookId, this.editBookForm.value).subscribe(() => {
-                    this.router.navigate(['/catalog'])
+                this.api.editBook(this.bookId, this.editBookForm.value).subscribe({
+                    next: () => {
+                        this.router.navigate(['/catalog'])
+                    },
+                    error: (error) => {
+                        this.errorMsg = error
+                    }
                 })
             }
         }

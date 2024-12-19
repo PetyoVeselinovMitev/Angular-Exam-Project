@@ -44,6 +44,12 @@
         <div class="form-group">
             <label for="availableCopies">Available Copies</label>
             <input id="availableCopies" type="number" value="1" formControlName="availableCopies">
-        </div> <button type="submit" >Save Book</button>
+        </div>
+        @if (errorMsg) {
+        <div class="error">
+            <p>{{errorMsg}}</p>
+        </div>
+        }
+        <button type="submit">Save Book</button>
     </form>
 </div>
