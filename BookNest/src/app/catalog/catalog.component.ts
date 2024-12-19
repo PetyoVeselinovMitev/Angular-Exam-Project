@@ -21,6 +21,8 @@ export class CatalogComponent implements OnInit {
     };
     currentUser$: Observable<any>
     role: string | null = null
+    selectedBook: string | null = null;
+    isModalOpen: boolean = false
 
     constructor(
         private Api: ApiService,
@@ -58,10 +60,22 @@ export class CatalogComponent implements OnInit {
     }
 
     deleteBook(bookId: string) {
-        this.Api.deleteBook(bookId).subscribe(() => {
-            this.router.navigateByUrl('/home', {skipLocationChange: true}).then(() => {
-                this.router.navigate(['/catalog'])
-            })
-        })
+        this.selectedBook = bookId;
+        this.isModalOpen = true;
     }
+
+    confirmDelete(): void {
+        if (this.selectedBook) {
+            this.Api.deleteBook(this.selectedBook).subscribe(() => {
+                this.router.navigateByUrl('/home', {skipLocationChange: true}).then(() => {
+                    this.router.navigate(['/catalog'])
+                })
+          });
+        }
+      }
+    
+      closeModal(): void {
+        this.isModalOpen = false;
+        this.selectedBook = null;
+      }
 }
