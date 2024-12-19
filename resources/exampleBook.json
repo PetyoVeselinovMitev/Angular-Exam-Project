@@ -1,0 +1,28 @@
+[
+    {
+        "title": "The Silent Woods",
+        "author": "Kimi Grant",
+        "imageUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1627893849l/56268973.jpg",
+        "ISBN": "978-1-234567-89-0",
+        "publicationDate": "2021-06-15",
+        "genre": "Mystery",
+        "summary": "A gripping tale of secrets buried deep within an isolated forest, where every shadow hides a story.",
+        "language": "English",
+        "numberOfPages": 324,
+        "publisher": "Greenleaf Press",
+        "availableCopies": 5
+    },
+    {
+        "title": "Starlight Chronicles",
+        "author": "C. S. Johnson",
+        "imageUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1668113780i/63272784.jpg",
+        "ISBN": "978-1-987654-32-1",
+        "publicationDate": "2019-11-22",
+        "genre": "Fantasy",
+        "summary": "An epic journey across galaxies, where a young adventurer discovers the power of unity against cosmic forces.",
+        "language": "English",
+        "numberOfPages": 498,
+        "publisher": "Cosmic Reads",
+        "availableCopies": 3
+    }
+]

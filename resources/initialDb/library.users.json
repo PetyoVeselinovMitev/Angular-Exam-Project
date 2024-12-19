@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "6749f3721f243aaede7d34e7"
+  },
+  "email": "admin@abv.bg",
+  "username": "Admin",
+  "password": "$2a$08$.kqWgX3iRFuKAJ4zy25g3.NyNA59C2NVyU6bGSH1VWgkrZWe01S7S",
+  "role": "admin",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6757113e7dbd46c4ba61d39f"
+  },
+  "email": "user@abv.bg",
+  "username": "User",
+  "password": "$2a$08$nAMupTmkhtOryrV74nOEt.DVzmqrgc1t0n/FDRCIF54hLuFABNfzW",
+  "role": "user",
+  "reservedBooks": [
+    {
+      "$oid": "67570e1f8cc582fdf5bf26f0"
+    },
+    {
+      "$oid": "67570e518cc582fdf5bf26f4"
+    },
+    {
+      "$oid": "67570e838cc582fdf5bf26f8"
+    }
+  ],
+  "__v": 6
+}]

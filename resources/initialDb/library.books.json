@@ -1,0 +1,221 @@
+[{
+  "_id": {
+    "$oid": "67570e1f8cc582fdf5bf26f0"
+  },
+  "title": "1984",
+  "author": "George Orwell",
+  "imageUrl": "https://m.media-amazon.com/images/I/612ADI+BVlL._AC_UF894,1000_QL80_.jpg",
+  "ISBN": "9780451524935",
+  "publicationDate": "1949-06-08",
+  "genre": "Dystopian",
+  "summary": "A novel that tells the story of a dystopian future where truth is manipulated and oppression is accepted.",
+  "language": "English",
+  "numberOfPages": 328,
+  "publisher": "Houghton Mifflin Harcourt",
+  "availableCopies": 3,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67570e518cc582fdf5bf26f4"
+  },
+  "title": "To Kill a Mockingbird",
+  "author": "Harper Lee",
+  "imageUrl": "https://cdn.britannica.com/21/182021-050-666DB6B1/book-cover-To-Kill-a-Mockingbird-many-1961.jpg",
+  "ISBN": "9780061120084",
+  "publicationDate": "1960-07-11",
+  "genre": "Southern Gothic",
+  "summary": "A novel about the serious issues of rape and racial inequality, told through the eyes of a young girl.",
+  "language": "English",
+  "numberOfPages": 281,
+  "publisher": "J.B. Lippincott & Co.",
+  "availableCopies": 7,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67570e838cc582fdf5bf26f8"
+  },
+  "title": "The Catcher in the Rye",
+  "author": "J.D. Salinger",
+  "imageUrl": "https://cdn.britannica.com/94/181394-050-2F76F7EE/Reproduction-cover-edition-The-Catcher-in-the.jpg",
+  "ISBN": "9780316769488",
+  "publicationDate": "1951-07-16",
+  "genre": "Realistic Fiction",
+  "summary": "The narrative of a teenager Holden Caulfield's experiences in New York City.",
+  "language": "English",
+  "numberOfPages": 214,
+  "publisher": "Little, Brown and Company",
+  "availableCopies": 3,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67570eb98cc582fdf5bf26fc"
+  },
+  "title": "Pride and Prejudice",
+  "author": "Jane Austen",
+  "imageUrl": "https://m.media-amazon.com/images/I/712P0p5cXIL._AC_UF894,1000_QL80_.jpg",
+  "ISBN": "9780141439518",
+  "publicationDate": "1813-01-28",
+  "genre": "Romantic Fiction",
+  "summary": "A romantic novel of manners that depicts the British Regency-era society.",
+  "language": "English",
+  "numberOfPages": 279,
+  "publisher": "T. Egerton, Whitehall",
+  "availableCopies": 8,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67570ef18cc582fdf5bf2700"
+  },
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "imageUrl": "https://i.harperapps.com/covers/9780063388475/y648.jpg",
+  "ISBN": "9780547928227",
+  "publicationDate": "1937-09-21",
+  "genre": "Fantasy",
+  "summary": "A fantasy novel about the quest of home-loving hobbit Bilbo Baggins to win a share of the treasure guarded by Smaug the dragon.",
+  "language": "English",
+  "numberOfPages": 310,
+  "publisher": "George Allen & Unwin",
+  "availableCopies": 5,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6758940087d5d1db91be1a8e"
+  },
+  "title": "Project Hail Mary",
+  "author": "Andy Weir",
+  "imageUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg",
+  "ISBN": "978-0-593-13520-4",
+  "publicationDate": "2021-05-04",
+  "genre": "Science Fiction, Thriller",
+  "summary": "Ryland Grace, an astronaut with amnesia, is on a desperate mission to save Earth from a solar dimming event. As he regains his memories, he discovers that his survival and humanity's future hinge on his success.",
+  "language": "English",
+  "numberOfPages": 496,
+  "publisher": "Ballantine Books",
+  "availableCopies": 5,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6759ae82bf63b134ef4c6e89"
+  },
+  "title": "Brave New World",
+  "author": "Aldous Huxley",
+  "imageUrl": "https://m.media-amazon.com/images/I/71GNqqXuN3L.jpg",
+  "ISBN": "9780060850524",
+  "publicationDate": "1932-01-01",
+  "genre": "Science Fiction",
+  "summary": "A dystopian social science fiction novel and a cautionary tale, anticipating huge scientific developments in reproductive technology, sleep-learning, psychological manipulation, and classical conditioning that are combined to make a dystopian society.",
+  "language": "English",
+  "numberOfPages": 311,
+  "publisher": "Chatto & Windus",
+  "availableCopies": 10,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6759aeebbf63b134ef4c6e8d"
+  },
+  "title": "The Brothers Karamazov",
+  "author": "Fyodor Dostoevsky",
+  "imageUrl": "https://images.penguinrandomhouse.com/cover/9780451530608",
+  "ISBN": "9780140449242",
+  "publicationDate": "1880-11-01",
+  "genre": "Philosophical Fiction",
+  "summary": "A passionate philosophical novel that enters deeply into the ethical debates of God, free will, and morality. The story of the Karamazov family is a polyphonic and elaborate tale of patricide in 19th century Russia.",
+  "language": "English",
+  "numberOfPages": 796,
+  "publisher": "The Russian Messenger",
+  "availableCopies": 3,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6759af20bf63b134ef4c6e91"
+  },
+  "title": "The Picture of Dorian Gray",
+  "author": "Oscar Wilde",
+  "imageUrl": "https://covers.storytel.com/jpg-640/9782378072513.ae79b1db-de10-4c0b-89cb-e995b01c9070?optimize=high&quality=70&width=600",
+  "ISBN": "9780141439570",
+  "publicationDate": "1890-06-20",
+  "genre": "Philosophical Fiction",
+  "summary": "A story of a young man, Dorian Gray, who is the subject of a painting by artist Basil Hallward. Dorian sells his soul to preserve his beauty, and the painting becomes a reflection of his soul's corruption.",
+  "language": "English",
+  "numberOfPages": 254,
+  "publisher": "Lippincott's Monthly Magazine",
+  "availableCopies": 4,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6759af49bf63b134ef4c6e95"
+  },
+  "title": "Wuthering Heights",
+  "author": "Emily Brontë",
+  "imageUrl": "https://m.media-amazon.com/images/I/81unikMK30L._AC_UF894,1000_QL80_.jpg",
+  "ISBN": "9780141439556",
+  "publicationDate": "1847-12-01",
+  "genre": "Gothic Fiction",
+  "summary": "The novel tells the story of the doomed love and revenge of Heathcliff, an orphan, and Catherine Earnshaw, a headstrong woman, set against the backdrop of the Yorkshire moors.",
+  "language": "English",
+  "numberOfPages": 416,
+  "publisher": "Thomas Cautley Newby",
+  "availableCopies": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6759af82bf63b134ef4c6e99"
+  },
+  "title": "Crime and Punishment",
+  "author": "Fyodor Dostoevsky",
+  "imageUrl": "https://www.ciela.com/media/catalog/product/cache/9a7ceae8a5abbd0253425b80f9ef99a5/0/7/0785841733.jpg",
+  "ISBN": "9780143107637",
+  "publicationDate": "1866-01-01",
+  "genre": "Psychological Fiction",
+  "summary": "The novel focuses on the mental anguish and moral dilemmas of Rodion Raskolnikov, an impoverished ex-student in St. Petersburg who formulates and executes a plan to kill an unscrupulous pawnbroker for her cash.",
+  "language": "English",
+  "numberOfPages": 671,
+  "publisher": "The Russian Messenger",
+  "availableCopies": 4,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6760406d944185eee9cf0cb8"
+  },
+  "title": "The Cuckoo's Calling",
+  "author": "Robert Galbraith (J.K. Rowling)",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/49/TheCuckoo%27sCalling%28first_UK_edition%29cover.jpg",
+  "ISBN": "9781408703991",
+  "publicationDate": "2013-04-04",
+  "genre": "Crime Fiction",
+  "summary": "A war veteran turned private investigator, Cormoran Strike, takes on a case involving the death of a supermodel, Lula Landry, who supposedly committed suicide. Strike's investigation reveals darker secrets and dangerous truths.",
+  "language": "English",
+  "numberOfPages": 465,
+  "publisher": "Sphere Books (Little, Brown & Company)",
+  "availableCopies": 7,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67604f3d944185eee9cf0dec"
+  },
+  "title": "The Last Wish",
+  "author": "Andrzej Sapkowski",
+  "imageUrl": "data:image/jpeg;base64,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",
+  "ISBN": "9780316029186",
+  "publicationDate": "1993-12-12",
+  "genre": "Fantasy",
+  "summary": "A collection of interconnected short stories introducing Geralt of Rivia, a witcher trained to hunt and kill monsters. These stories set the stage for the main Witcher saga.",
+  "language": "Polish (original), English (translated)",
+  "numberOfPages": 384,
+  "publisher": "SuperNOWA (Polish edition), Orbit (English edition)",
+  "availableCopies": 15,
+  "__v": 0
+}]
