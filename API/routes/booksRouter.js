@@ -115,21 +115,21 @@ router.post('/books/:id/reserve', auth, async (req, res) => {
     try {
         const book = await Book.findById(req.params.id);
         if (!book) {
-            return res.status(404).send({ error: 'Book not found' });
+            return res.status(404).json({ error: 'Book not found' });
         }
 
         if (book.availableCopies <= 0) {
-            return res.status(400).send({ error: 'No available copies' });
+            return res.status(400).json({ error: 'No available copies' });
         }
 
         const user = req.user;
 
         if (user.reservedBooks.length >= 5) {
-            return res.status(400).send({ error: 'You can\'t reserve more than 5 books' });
+            return res.status(400).json({ error: 'You can\'t reserve more than 5 books' });
         }
 
         if (user.reservedBooks.includes(book._id)) {
-            return res.status(400).send({ error: 'Book already reserved' });
+            return res.status(400).json({ error: 'Book already reserved' });
         }
 
         user.reservedBooks.push(book._id);
@@ -138,9 +138,9 @@ router.post('/books/:id/reserve', auth, async (req, res) => {
         await user.save();
         await book.save();
 
-        res.send({ message: 'Book reserved successfully', book });
+        res.json({ message: 'Book reserved successfully', book });
     } catch (error) {
-        res.status(500).send({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 });
 

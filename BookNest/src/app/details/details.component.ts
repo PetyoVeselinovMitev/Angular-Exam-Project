@@ -5,11 +5,12 @@ import { Books } from '../../types/books';
 import { User } from '../../types/users';
 import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
+import { NgIf } from '@angular/common';
 
 @Component({
     selector: 'app-details',
     standalone: true,
-    imports: [RouterLink],
+    imports: [RouterLink, NgIf],
     templateUrl: './details.component.html',
     styleUrl: './details.component.css'
 })
@@ -31,7 +32,9 @@ export class DetailsComponent implements OnInit {
     };
 
     currentUser$: Observable<User>
-    username: string | null = null
+    username: string | null = null;
+    isModalOpen: boolean = false;
+    errorMsg: string | null = null;
 
     constructor(private route: ActivatedRoute, private api: ApiService, private auth: AuthService, private router: Router) {
         this.currentUser$ = this.auth.currentUser
@@ -61,8 +64,19 @@ export class DetailsComponent implements OnInit {
     }
 
     onSubmit(bookId: string) {
-        this.api.reserveBook(bookId).subscribe(() => {
-            this.router.navigate(['/profile'])
+        this.api.reserveBook(bookId).subscribe({
+            next: () => {
+                this.router.navigate(['/profile'])
+            },
+            error: (error) => {
+                this.errorMsg = error;
+                this.isModalOpen = true;
+            }
         })
+    }
+
+    closeModal(): void {
+        this.isModalOpen = false
+        this.errorMsg = null;
     }
 }

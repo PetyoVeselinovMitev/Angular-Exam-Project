@@ -27,7 +27,11 @@ export class ApiService {
 
     reserveBook(bookId: string) {
         let url =`/api/books/${bookId}/reserve`;
-        return this.http.post(url, null)
+        return this.http.post(url, null).pipe(
+            catchError((error) => {
+                return throwError(() => new Error(error.error.error))
+            })
+        )
     }
 
     returnBook(bookId: string) {

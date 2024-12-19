@@ -21,4 +21,15 @@
             }
         </div>
     </div>
+
+    <div *ngIf="isModalOpen" class="modal-backdrop">
+        <div class="modal">
+            <h2>Error</h2>
+            <p>{{errorMsg}}</p>
+            <div class="modal-actions">
+                <button (click)="closeModal()">Ok</button>
+            </div>
+        </div>
+    </div>
+
 </div>
