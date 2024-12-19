@@ -11,6 +11,13 @@
         Admin accounts have the ability to register other admin accounts
         Create edit and delete books.
         Admins can also reserve and return books.
+    - There are two predefined users 
+       - user with 
+            email: user@abv.bg
+            password: user
+       - admin with
+            email: admin@abv.bg
+            password: admin
 2. Installation Instructions and structure
    - The main directory contains:
       - API folder - server
