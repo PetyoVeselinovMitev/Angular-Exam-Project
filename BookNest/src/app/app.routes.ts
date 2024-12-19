@@ -12,6 +12,7 @@ import { AuthGuard } from './auth.guard';
 import { AdminGuard } from './admin.guard';
 
 export const routes: Routes = [
+    {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'home', component: HomeComponent},
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},

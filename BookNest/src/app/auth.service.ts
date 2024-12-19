@@ -93,9 +93,14 @@ export class AuthService {
     registerAdmin(user: User) {
         const url = '/api/register-admin'
 
-        return this.http.post(url, user, { withCredentials: true }).subscribe(() => {
-            this.router.navigate(['/home'])
-        })
+        return this.http.post(url, user, { withCredentials: true }).pipe(
+            tap(() => {
+                this.router.navigate(['/home'])
+            }),
+            catchError((error) => {
+                return throwError(() => new Error(error.error.error))
+            })
+        )
     }
 
     logout() {

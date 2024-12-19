@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required]],
             rePass: ['', [Validators.required]]
-        }, {validators: passwordMatchValidator})
+        }, { validators: passwordMatchValidator })
 
         this.currentUser$ = this.authService.currentUser;
     }
@@ -38,7 +38,14 @@ export class RegisterComponent implements OnInit {
 
     onSubmit() {
         if (this.role === 'admin' && this.registerForm.valid) {
-            this.authService.registerAdmin(this.registerForm.value)
+            this.authService.registerAdmin(this.registerForm.value).subscribe({
+                next: () => {
+                    this.errorMsg = null;
+                },
+                error: (error) => {
+                    this.errorMsg = error
+                }
+            })
         } else if (this.registerForm.valid) {
             this.authService.register(this.registerForm.value).subscribe({
                 next: () => {

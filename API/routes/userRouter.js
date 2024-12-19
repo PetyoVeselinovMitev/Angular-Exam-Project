@@ -14,7 +14,13 @@ router.get('/check-auth', auth, (req, res) => {
 router.post('/register-admin', auth, authAdmin, async (req, res) => {
     try {
         req.body.role = 'admin'
+
+        const existingUser = await Users.findOne({email: req.body.email});
+        if (existingUser) {
+            return res.status(400).json({ error: 'A user with this email already exists.'})
+        }
         const user = new Users(req.body);
+
         await user.save();
         res.status(200).send({ status: 'New admin account created.' })
     } catch (error) {
