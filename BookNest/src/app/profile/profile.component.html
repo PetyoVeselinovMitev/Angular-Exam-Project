@@ -21,6 +21,16 @@
                 <button (click)="onSubmit(book._id)" class="returnBtn">Return</button>
             </div>
             }
+            <div *ngIf="isModalOpen" class="modal-backdrop">
+                <div class="modal">
+                    <h2>Confirm book return</h2>
+                    <p>Are you sure you want to return this book?</p>
+                    <div class="modal-actions">
+                        <button (click)="confirmReturn()">Yes</button>
+                        <button (click)="closeModal()">Cancel</button>
+                    </div>
+                </div>
+            </div>
             }
         </div>
     </div>

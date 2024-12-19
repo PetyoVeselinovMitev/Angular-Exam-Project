@@ -23,6 +23,8 @@ export class ProfileComponent implements OnInit {
   userId: string | null = null;
   isLoading = true;
   hasError = false;
+  isModalOpen: boolean = false;
+  selectedBook: string | null = null;
 
   constructor(private authService: AuthService, private api: ApiService, private router: Router) {
     this.currentUser$ = this.authService.currentUser;
@@ -55,10 +57,23 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit(bookId: string): void {
-    this.api.returnBook(bookId).subscribe(() => {
-      this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
-        this.router.navigate(['/profile']);
+    this.isModalOpen = true;
+    this.selectedBook = bookId
+  }
+
+  confirmReturn(): void {
+    if (this.selectedBook) {
+      this.api.returnBook(this.selectedBook).subscribe(() => {
+        this.isModalOpen = false;
+        this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/profile']);
+        });
       });
-    });
+    }
+  }
+
+  closeModal(): void {
+    this.isModalOpen = false;
+    this.selectedBook = null;
   }
 }
