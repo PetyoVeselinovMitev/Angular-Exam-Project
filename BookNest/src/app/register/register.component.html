@@ -19,6 +19,11 @@
                 <input id="repeatPassword" placeholder="*******" type="password" formControlName="rePass">
             </div>
         </div>
+        @if (errorMsg) {
+        <div class="error">
+            <p>{{errorMsg}}</p>
+        </div>
+        }
         <div class="buttonContainer">
             <button type="submit" [disabled]="registerForm.invalid">Register</button>
         </div>

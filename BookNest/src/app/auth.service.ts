@@ -55,25 +55,10 @@ export class AuthService {
         );
     }
 
-
-    // login(user: User) {
-    //     const url = '/api/login'
-    //     return this.http.post(url, user, { withCredentials: true }).subscribe(() => {
-    //         this.loggedIn.next(true);
-
-    //         const userData = this.getUserFromCookie()
-    //         this.currentUserData.next(userData)
-
-    //         this.router.navigate(['/']);
-    //     });
-    // }
-
     login(user: User) {
         const url = '/api/login'
         return this.http.post(url, user, { withCredentials: true }).pipe(
-            tap((response) => {
-                console.log('Login successful', response);
-
+            tap(() => {
                 this.loggedIn.next(true);
 
                 const userData = this.getUserFromCookie();
@@ -89,14 +74,20 @@ export class AuthService {
 
     register(user: User) {
         const url = '/api/register'
-        return this.http.post(url, user, { withCredentials: true }).subscribe(() => {
-            this.loggedIn.next(true);
+        return this.http.post(url, user, { withCredentials: true }).pipe(
+            tap(() => {
+                this.loggedIn.next(true);
 
-            const userData = this.getUserFromCookie()
-            this.currentUserData.next(userData)
+                const userData = this.getUserFromCookie()
+                this.currentUserData.next(userData)
+    
+                this.router.navigate(['/home'])
+            }),
+            catchError((error) => {
+                return throwError(() => new Error(error.error.error))
+            })
 
-            this.router.navigate(['/home'])
-        })
+        )
     }
 
     registerAdmin(user: User) {

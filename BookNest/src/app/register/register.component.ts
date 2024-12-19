@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
     registerForm: FormGroup
     currentUser$: Observable<any>
     role: string | null = null
+    errorMsg: string | null = null;
 
     constructor(private fb: FormBuilder, private authService: AuthService) {
         this.registerForm = this.fb.group({
@@ -39,7 +40,14 @@ export class RegisterComponent implements OnInit {
         if (this.role === 'admin' && this.registerForm.valid) {
             this.authService.registerAdmin(this.registerForm.value)
         } else if (this.registerForm.valid) {
-            this.authService.register(this.registerForm.value)
+            this.authService.register(this.registerForm.value).subscribe({
+                next: () => {
+                    this.errorMsg = null;
+                },
+                error: (error) => {
+                    this.errorMsg = error
+                }
+            })
         }
     }
 }
